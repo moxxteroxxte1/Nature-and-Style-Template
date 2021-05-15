@@ -27,21 +27,23 @@
         [{block name="dd_layout_page_header_icon_menu_account_list"}]
             <li>
                 <div class="row">
-                    <div class="[{if !$oxcmp_user}]col-12 col-sm-5[{else}]col-12[{/if}] order-1 order-md-2">
+                    [{if $oxcmp_user}]
+                    <div class="col">
                         <div class="service-menu-box clearfix">
                             [{include file="widget/header/servicebox.tpl"}]
-                            [{if $oxcmp_user}]
                                 <div class="divider"></div>
-                                <div class="text-right">
+                                <div class="text-center">
                                     <a class="btn btn-danger" role="button" href="[{$oViewConf->getLogoutLink()}]" title="[{oxmultilang ident="LOGOUT"}]">
                                         <i class="fa fa-power-off"></i> [{oxmultilang ident="LOGOUT"}]
                                     </a>
                                 </div>
-                            [{/if}]
+
                         </div>
                     </div>
+                    [{/if}]
                     [{if !$oxcmp_user}]
-                        <div class="col-12 col-sm-7 order-2 order-md-1">
+                    <!--order-2 order-md-1-->
+                        <div class="col">
                             <div class="service-menu-box clearfix">
                                 [{include file="widget/header/loginbox.tpl"}]
                             </div>

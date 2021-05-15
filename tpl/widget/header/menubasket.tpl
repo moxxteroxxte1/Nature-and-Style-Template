@@ -1,3 +1,4 @@
+[{if $oxcmp_user != null}]
 <li class="fixed-header-item">
     <a href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=basket"}]" rel="nofollow" class="fixed-header-link">
         <i class="fas fa-shopping-cart"></i>
@@ -8,3 +9,4 @@
         [{/if}]
     </a>
 </li>
+[{/if}]

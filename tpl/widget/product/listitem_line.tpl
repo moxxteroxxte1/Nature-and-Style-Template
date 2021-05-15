@@ -106,6 +106,8 @@
                     </div>
                 [{/block}]
             </div>
+
+            [{if $oxcmp_user}]
             <div class="col-6 col-md-3">
                 <div class="functions text-right">
                     [{block name="widget_product_listitem_line_price"}]
@@ -211,6 +213,7 @@
                     [{/block}]
                 </div>
             </div>
+            [{/if}]
         </div>
     </form>
 

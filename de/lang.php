@@ -24,6 +24,10 @@ $sLangName = "Deutsch";
 $aLang = [
     'charset'                                               => 'UTF-8',
 
+    //NAS
+    'TO_CART_LOGIN'                                         => 'zuerst anmelden',
+    'USER_NOT_ACTIVATED'                                    => 'Warten auf Freigabe',
+
     // Global
     'DD_SORT_DESC'                                          => 'absteigend',
     'DD_SORT_ASC'                                           => 'aufsteigend',

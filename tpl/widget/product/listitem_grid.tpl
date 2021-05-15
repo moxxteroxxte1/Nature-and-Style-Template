@@ -12,7 +12,7 @@
     [{/if}]
     [{assign var="aVariantSelections" value=$product->getVariantSelections(null,null,1)}]
     [{assign var="blShowToBasket" value=true}] [{* tobasket or more info ? *}]
-    [{if $blDisableToCart || $product->isNotBuyable() || ($aVariantSelections&&$aVariantSelections.selections) || $product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants()}]
+    [{if !$oxcmp_user || $blDisableToCart || $product->isNotBuyable() || ($aVariantSelections&&$aVariantSelections.selections) || $product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants()}]
         [{assign var="blShowToBasket" value=false}]
     [{/if}]
 
@@ -73,10 +73,11 @@
                 </div>
             [{/block}]
 
-            <div class="price text-center">
-                <div class="content">
-                    [{block name="widget_product_listitem_grid_price"}]
-                        [{oxhasrights ident="SHOWARTICLEPRICE"}]
+            [{if $oxcmp_user}]
+                <div class="price text-center">
+                    <div class="content">
+                        [{block name="widget_product_listitem_grid_price"}]
+                            [{oxhasrights ident="SHOWARTICLEPRICE"}]
                             [{assign var="oUnitPrice" value=$product->getUnitPrice()}]
                             [{assign var="tprice"     value=$product->getTPrice()}]
                             [{assign var="price"      value=$product->getPrice()}]
@@ -87,44 +88,45 @@
                                 </span>
                             [{/if}]
 
-                            [{block name="widget_product_listitem_grid_price_value"}]
-                                [{if $product->getFPrice()}]
-                                    <span class="lead text-nowrap">
-                                        [{if $product->isRangePrice()}]
-                                            [{oxmultilang ident="PRICE_FROM"}]
-                                            [{if !$product->isParentNotBuyable()}]
-                                                [{$product->getFMinPrice()}]
+                                [{block name="widget_product_listitem_grid_price_value"}]
+                                    [{if $product->getFPrice()}]
+                                        <span class="lead text-nowrap">
+                                            [{if $product->isRangePrice()}]
+                                                [{oxmultilang ident="PRICE_FROM"}]
+                                                [{if !$product->isParentNotBuyable()}]
+                                                    [{$product->getFMinPrice()}]
+                                                [{else}]
+                                                    [{$product->getFVarMinPrice()}]
+                                                [{/if}]
                                             [{else}]
-                                                [{$product->getFVarMinPrice()}]
+                                                [{if !$product->isParentNotBuyable()}]
+                                                    [{$product->getFPrice()}]
+                                                [{else}]
+                                                    [{$product->getFVarMinPrice()}]
+                                                [{/if}]
                                             [{/if}]
-                                        [{else}]
-                                            [{if !$product->isParentNotBuyable()}]
-                                                [{$product->getFPrice()}]
-                                            [{else}]
-                                                [{$product->getFVarMinPrice()}]
+                                            [{$currency->sign}]
+                                            [{if $oView->isVatIncluded()}]
+                                                 [{if !($product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants())}]*[{/if}]
                                             [{/if}]
-                                        [{/if}]
-                                        [{$currency->sign}]
-                                        [{if $oView->isVatIncluded()}]
-                                             [{if !($product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants())}]*[{/if}]
-                                        [{/if}]
+                                        </span>
+                                    [{/if}]
+                                [{/block}]
+                                [{if $oUnitPrice}]
+                                    <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit">
+                                        [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{oxprice price=$oUnitPrice currency=$currency}]/[{$product->getUnitName()}]
+                                    </span>
+                                [{elseif $product->oxarticles__oxweight->value }]
+                                    <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit">
+                                        <span title="weight">[{oxmultilang ident="WEIGHT"}]</span>
+                                        <span class="value">[{$product->oxarticles__oxweight->value}] [{oxmultilang ident="KG"}]</span>
                                     </span>
                                 [{/if}]
-                            [{/block}]
-                            [{if $oUnitPrice}]
-                                <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit">
-                                    [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{oxprice price=$oUnitPrice currency=$currency}]/[{$product->getUnitName()}]
-                                </span>
-                            [{elseif $product->oxarticles__oxweight->value }]
-                                <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit">
-                                    <span title="weight">[{oxmultilang ident="WEIGHT"}]</span>
-                                    <span class="value">[{$product->oxarticles__oxweight->value}] [{oxmultilang ident="KG"}]</span>
-                                </span>
-                            [{/if}]
-                        [{/oxhasrights}]
-                    [{/block}]
+                            [{/oxhasrights}]
+                        [{/block}]
+                    </div>
                 </div>
-            </div>
+            [{/if}]
             [{block name="widget_product_listitem_grid_tobasket"}]
                 <div class="actions text-center">
                     <div class="btn-group">

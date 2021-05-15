@@ -24,12 +24,12 @@
  * Theme Information
  */
 $aTheme = array(
-    'id'          => 'wave',
-    'title'       => 'Wave',
-    'description' => 'Wave is OXID`s official responsive theme based on the CSS framework Bootstrap 4.',
-    'thumbnail'   => 'theme.jpg',
-    'version'     => '1.6.0',
-    'author'      => '<a href="http://www.oxid-esales.com" title="OXID eSales AG">OXID eSales AG</a>',
+    'id'          => 'nastheme',
+    'title'       => 'Nature and Style Theme',
+    'description' => 'Nature and Style Theme',
+    'thumbnail'   => 'logo.jpg',
+    'version'     => '1.0.0',
+    'author'      => '<a href="http://www.natureandstyle.com" title="Nature and Style Wohnkultur import GmbH</a>',
     'settings'    => array(
         //Group display:
         array(

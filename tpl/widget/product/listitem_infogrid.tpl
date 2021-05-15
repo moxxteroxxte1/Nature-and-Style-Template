@@ -12,7 +12,7 @@
     [{/if}]
     [{assign var="aVariantSelections" value=$product->getVariantSelections(null,null,1)}]
     [{assign var="blShowToBasket" value=true}] [{* tobasket or more info ? *}]
-    [{if $blDisableToCart || $product->isNotBuyable() || ($aVariantSelections&&$aVariantSelections.selections) || $product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants()}]
+    [{if !$oxcmp_user || $blDisableToCart || $product->isNotBuyable() || ($aVariantSelections&&$aVariantSelections.selections) || $product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants()}]
         [{assign var="blShowToBasket" value=false}]
     [{/if}]
 
@@ -54,6 +54,7 @@
                 <input type="hidden" name="cl" value="details">
                 <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
             [{/if}]
+
         </div>
 
         <div class="row">
@@ -101,13 +102,17 @@
                         [{/if}]
                     [{/block}]
 
+                    [{if $oxcmp_user}]
                     <div class="price">
                         <div class="content">
                             [{block name="widget_product_listitem_infogrid_price"}]
                                 [{oxhasrights ident="SHOWARTICLEPRICE"}]
-                                    [{assign var="oUnitPrice" value=$product->getUnitPrice()}]
-                                    [{assign var="tprice"     value=$product->getTPrice()}]
-                                    [{assign var="price"      value=$product->getPrice()}]
+                                [{assign var="oUnitPrice" value=$product->getUnitPrice()}]
+                                [{assign var="tprice"     value=$product->getTPrice()}]
+                                [{assign var="price"      value=$product->getPrice()}]
+
+                                <input type="hidden" name="brutto" value="[{$price->getBruttoPrice()}]">
+                                <input type="hidden" name="vat_value" value="[{$price->getVatValue()}]">
 
                                     [{if $tprice && $tprice->getBruttoPrice() > $price->getBruttoPrice()}]
                                         <span class="oldPrice text-muted">
@@ -153,6 +158,8 @@
                             [{/block}]
                         </div>
                     </div>
+                    [{/if}]
+                    
                     [{block name="widget_product_listitem_infogrid_tobasket"}]
                         <div class="actions">
                             <div class="btn-group">

@@ -1,21 +1,21 @@
 {
-    "name": "oxid-esales/wave-theme",
-    "description": "This is Wave Theme for OXID eShop.",
+    "name": "nature-and-style/theme",
+    "description": "Nature and Style Theme",
     "type": "oxideshop-theme",
     "keywords": [
         "oxid",
         "themes",
         "eShop"
     ],
-    "homepage": "https://www.oxid-esales.com/en/home.html",
+    "homepage": "https://www.natureandstyle.com",
     "license": [
         "GPL-3.0-only"
     ],
     "minimum-stability": "dev",
     "extra": {
         "oxideshop": {
-            "target-directory": "wave",
-            "assets-directory": "out/wave",
+            "target-directory": "nastheme",
+            "assets-directory": "out/nastheme",
             "blacklist-filter": [
                 "build/**/*",
                 ".gitignore",
