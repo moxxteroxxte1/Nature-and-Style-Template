@@ -12,6 +12,7 @@
         "GPL-3.0-only"
     ],
     "minimum-stability": "dev",
+    "prefer-stable": ture,
     "extra": {
         "oxideshop": {
             "target-directory": "nastheme",
