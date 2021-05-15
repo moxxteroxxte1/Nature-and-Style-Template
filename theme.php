@@ -27,7 +27,7 @@ $aTheme = array(
     'id'          => 'nastheme',
     'title'       => 'Nature and Style Theme',
     'description' => 'Nature and Style Theme',
-    'thumbnail'   => 'logo.jpg',
+    'thumbnail'   => 'theme.png',
     'version'     => '1.0.0',
     'author'      => '<a href="http://www.natureandstyle.com" title="Nature and Style Wohnkultur import GmbH</a>',
     'settings'    => array(
