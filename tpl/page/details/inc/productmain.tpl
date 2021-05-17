@@ -258,62 +258,68 @@
                     <div class="tobasketFunction tobasket-function">
                         [{oxhasrights ident="TOBASKET"}]
                         [{if !$oDetailsProduct->isNotBuyable()}]
-                        <div class="input-group tobasket-input-group">
+                                [{if !$oxcmp_user}]
 
-                            [{if !$oDetailsProduct->isUnique()}]
-                                <input id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
-                                <div class="input-group-append">
-                            [{else}]
-                                <input type="hidden" id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
-                                <div>
-                            [{/if}]
+                                <div class="card m-3" style="height: auto !important;">
+                                    <div class="card-header">
+                                        <i class="fa fa-user"></i> <a id="reviewsLogin" rel="nofollow" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" params="anid=`$oDetailsProduct->oxarticles__oxnid->value`"|cat:"&amp;sourcecl=details"|cat:$oViewConf->getNavUrlParams()}]">[{oxmultilang ident="MESSAGE_LOGIN_TO_ADD_CART"}]</a>
+                                    </div>
+                                </div>
 
-                                [{if !$isLoggedIn}]
-                                    [{assign var="to_cart_ident" value="TO_CART_LOGIN"}]
                                 [{else}]
                                     [{assign var="to_cart_ident" value="TO_CART_NOVARIANT"}]
+                                    <div class="input-group tobasket-input-group">
+                                    [{if !$oDetailsProduct->isUnique()}]
+                                        <input id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
+                                        <div class="input-group-append">
+                                    [{else}]
+                                        <input type="hidden" id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
+                                        <div>
+                                    [{/if}]
+                                            <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="btn btn-primary submitButton" data-disabledtext="[{oxmultilang ident=$to_cart_ident}]"><i class="fa fa-shopping-cart"></i> [{oxmultilang ident="TO_CART"}]</button>
+                                        </div>
+                                    </div>
                                 [{/if}]
-                                <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="btn btn-primary submitButton" data-disabledtext="[{oxmultilang ident=$to_cart_ident}]"><i class="fa fa-shopping-cart"></i> [{oxmultilang ident="TO_CART"}]</button>
-                            </div>
-                        </div>
                         [{/if}]
                         [{/oxhasrights}]
                     </div>
                     [{/block}]
 
-                    [{block name="details_productmain_stockstatus"}]
-                    [{if $oDetailsProduct->getStockStatus() == -1}]
-                    <span class="stockFlag notOnStock">
-                            <i class="fa fa-circle text-danger"></i>
-                            [{if $oDetailsProduct->oxarticles__oxnostocktext->value}]
-                                <link itemprop="availability" href="http://schema.org/OutOfStock"/>
-                                [{$oDetailsProduct->oxarticles__oxnostocktext->value}]
-                            [{elseif $oViewConf->getStockOffDefaultMessage()}]
-                                <link itemprop="availability" href="http://schema.org/OutOfStock"/>
-                                [{oxmultilang ident="MESSAGE_NOT_ON_STOCK"}]
-                            [{/if}]
-                            [{if $oDetailsProduct->getDeliveryDate()}]
-                                <link itemprop="availability" href="http://schema.org/PreOrder"/>
-                                [{oxmultilang ident="AVAILABLE_ON"}] [{$oDetailsProduct->getDeliveryDate()}]
-                            [{/if}]
-                        </span>
-                    [{elseif $oDetailsProduct->getStockStatus() == 1}]
-                <link itemprop="availability" href="http://schema.org/InStock"/>
-                    <span class="stockFlag lowStock">
-                            <i class="fa fa-circle text-warning"></i> [{oxmultilang ident="LOW_STOCK"}]
-                        </span>
-                    [{elseif $oDetailsProduct->getStockStatus() == 0}]
-                    <span class="stockFlag">
-                            <link itemprop="availability" href="http://schema.org/InStock"/>
-                            <i class="fa fa-circle text-success"></i>
-                            [{if $oDetailsProduct->oxarticles__oxstocktext->value}]
-                                [{$oDetailsProduct->oxarticles__oxstocktext->value}]
-                            [{elseif $oViewConf->getStockOnDefaultMessage()}]
-                                [{oxmultilang ident="READY_FOR_SHIPPING"}]
-                            [{/if}]
-                        </span>
+                    [{if $oxcmp_user}]
+                        [{block name="details_productmain_stockstatus"}]
+                        [{if $oDetailsProduct->getStockStatus() == -1}]
+                        <span class="stockFlag notOnStock">
+                                <i class="fa fa-circle text-danger"></i>
+                                [{if $oDetailsProduct->oxarticles__oxnostocktext->value}]
+                                    <link itemprop="availability" href="http://schema.org/OutOfStock"/>
+                                    [{$oDetailsProduct->oxarticles__oxnostocktext->value}]
+                                [{elseif $oViewConf->getStockOffDefaultMessage()}]
+                                    <link itemprop="availability" href="http://schema.org/OutOfStock"/>
+                                    [{oxmultilang ident="MESSAGE_NOT_ON_STOCK"}]
+                                [{/if}]
+                                [{if $oDetailsProduct->getDeliveryDate()}]
+                                    <link itemprop="availability" href="http://schema.org/PreOrder"/>
+                                    [{oxmultilang ident="AVAILABLE_ON"}] [{$oDetailsProduct->getDeliveryDate()}]
+                                [{/if}]
+                            </span>
+                        [{elseif $oDetailsProduct->getStockStatus() == 1}]
+                    <link itemprop="availability" href="http://schema.org/InStock"/>
+                        <span class="stockFlag lowStock">
+                                <i class="fa fa-circle text-warning"></i> [{oxmultilang ident="LOW_STOCK"}]
+                            </span>
+                        [{elseif $oDetailsProduct->getStockStatus() == 0}]
+                        <span class="stockFlag">
+                                <link itemprop="availability" href="http://schema.org/InStock"/>
+                                <i class="fa fa-circle text-success"></i>
+                                [{if $oDetailsProduct->oxarticles__oxstocktext->value}]
+                                    [{$oDetailsProduct->oxarticles__oxstocktext->value}]
+                                [{elseif $oViewConf->getStockOnDefaultMessage()}]
+                                    [{oxmultilang ident="READY_FOR_SHIPPING"}]
+                                [{/if}]
+                            </span>
+                        [{/if}]
+                        [{/block}]
                     [{/if}]
-                    [{/block}]
 
                     [{oxhasrights ident="TOBASKET"}]
                     [{if $oDetailsProduct->isBuyable()}]

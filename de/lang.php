@@ -25,8 +25,8 @@ $aLang = [
     'charset'                                               => 'UTF-8',
 
     //NAS
-    'TO_CART_LOGIN'                                         => 'zuerst anmelden',
     'USER_NOT_ACTIVATED'                                    => 'Warten auf Freigabe',
+    'MESSAGE_LOGIN_TO_ADD_CART'                             => 'Sie müssen angemeldet sein, um Artikel in den Warenkorb hinzufügen zu können.',
 
     // Global
     'DD_SORT_DESC'                                          => 'absteigend',
