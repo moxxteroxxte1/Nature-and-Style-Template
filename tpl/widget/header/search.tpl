@@ -12,7 +12,7 @@
 
                     [{block name="dd_header_search_button"}]
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="searchSubmit" title="[{oxmultilang ident="SEARCH_SUBMIT"}]"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-primary" type="button" id="searchSubmit" title="[{oxmultilang ident="SEARCH_SUBMIT"}]"><p>[{oxmultilang ident="SEARCH_SUBMIT"}]</p></button>
                     </div>
                     [{/block}]
                 </div>

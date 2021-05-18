@@ -23,9 +23,9 @@ $sLangName = "English";
 
 $aLang = [
     'charset'                                               => 'UTF-8',
-
-    'TO_CART_LOGIN'                                         => 'you have to login first',
+    
     'USER_NOT_ACTIVATED'                                    => 'Waiting for approval.',
+    'MESSAGE_LOGIN_TO_ADD_CART'                             => 'MISSING_MESSAGE_LOGIN_TO_ADD_CART',
 
     // Global
     'DD_SORT_DESC'                                          => 'descending',
