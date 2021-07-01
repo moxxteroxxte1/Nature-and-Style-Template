@@ -34,6 +34,13 @@ $aTheme = array(
         //Group display:
         array(
             'group' => 'display',
+            'name' => 'sAccentColor',
+            'type' => 'str',
+            'value' => '#5495BC',
+            'position' => 1000,
+        ),
+        array(
+            'group' => 'display',
             'name' => 'blFullwidthLayout',
             'type' => 'bool',
             'value' => 0,

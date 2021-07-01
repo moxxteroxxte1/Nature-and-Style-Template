@@ -211,6 +211,7 @@ $aLang = array(
     'SHOP_THEME_sEcondaRecommendationsToBasket'     => 'Stoppe Ausgabe der Recommendations ab Artikel',
 
     'SHOP_THEME_blFullwidthLayout'                  => 'Full-Width Layout aktivieren',
+    'SHOP_THEME_sAccentColor'                       => 'Akzentfarbe für das Store-Frontend',
 
     'SHOP_THEME_blEmailsShowProductPictures'        => 'Produktbilder in E-Mails anzeigen',
 

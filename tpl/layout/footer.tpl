@@ -36,14 +36,6 @@
                         [{/block}]
                         [{if $blShowFullFooter}]
                         [{block name="dd_footer_manufacturerlist"}]
-                        <section class="col-12 col-md-6 col-lg-3 footer-box footer-box-manufacturers">
-                            <div class="h4 footer-box-title">[{oxmultilang ident="OUR_BRANDS"}]</div>
-                            <div class="footer-box-content">
-                                [{block name="dd_footer_manufacturerlist_inner"}]
-                                [{oxid_include_widget cl="oxwManufacturerList" _parent=$oView->getClassName() noscript=1 nocookie=1}]
-                                [{/block}]
-                            </div>
-                        </section>
                         [{/block}]
                         [{block name="dd_footer_categorytree"}]
                         <section class="col-12 col-md-6 col-lg-3 footer-box footer-box-categories">
