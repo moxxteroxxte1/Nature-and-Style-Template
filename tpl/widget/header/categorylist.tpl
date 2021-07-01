@@ -19,6 +19,11 @@
                     </div>
                 [{/block}]
                 <div class="collapse navbar-collapse navbar-main-collapse" id="navbarSupportedContent">
+                    <li class="fixed-header-item">
+                        <a href="javascript:void(null)" class="search-toggle fixed-header-link" rel="nofollow">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li>
                     <ul id="navigation" class="navbar-nav nav">
                         [{block name="dd_widget_header_categorylist_navbar_list"}]
                             [{if $oViewConf->getViewThemeParam('blHomeLink')}]
@@ -70,12 +75,6 @@
                         [{block name="categorylist_navbar_minibasket"}]
                             [{include file="widget/header/menubasket.tpl"}]
                         [{/block}]
-
-                        <li class="fixed-header-item">
-                            <a href="javascript:void(null)" class="search-toggle fixed-header-link" rel="nofollow">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </li>
 
                     </ul>
 

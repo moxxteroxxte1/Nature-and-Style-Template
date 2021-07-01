@@ -60,6 +60,7 @@
     <div class="details-info" itemscope itemtype="http://schema.org/Product">
         <div class="row">
             <div class="col-12 col-md-4 details-col-left">
+
                 [{* article picture with zoom *}]
                 [{block name="details_productmain_zoom"}]
                 [{oxscript include="js/libs/photoswipe.min.js" priority=8}]
@@ -270,7 +271,12 @@
                                     [{assign var="to_cart_ident" value="TO_CART_NOVARIANT"}]
                                     <div class="input-group tobasket-input-group">
                                     [{if !$oDetailsProduct->isUnique()}]
-                                        <input id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
+                                        [{if $oxcmp_user->inGroup('oxiddealer') && $oDetailsProduct->oxarticles__oxamountinpu->value}]
+                                            [{assign var="unit" value=$oDetailsProduct->getPackagingUnit()}]
+                                        [{else}]
+                                            [{assign var="unit" value=1}]
+                                        [{/if}]
+                                        <input id="amountToBasket" type="number" name="am" value="[{$unit}]" min="[{$unit}]" step="[{$unit}]" autocomplete="off" class="form-control">
                                         <div class="input-group-append">
                                     [{else}]
                                         <input type="hidden" id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
@@ -320,6 +326,21 @@
                         [{/if}]
                         [{/block}]
                     [{/if}]
+
+                    [{if $oDetailsProduct->oxarticles__oxamountinpu->value && $oxcmp_user && $oxcmp_user->inGroup('oxiddealer')}]
+                        <div class="alert alert-warning mt-2 p-a">
+                            <h5><span style="white-space: pre;">[{oxmultilang ident="PRODUCT_MAIN_PU_WARNINT"}] ([{$oDetailsProduct->oxarticles__oxpackagingunit->value}] [{$oDetailsProduct->oxarticles__oxunitname->value}])</span></h5>
+                        </div>
+                    [{/if}]
+
+                    [{if $oDetailsProduct->getDiscounts()}]
+                        <div class="alert alert-success mt-2 p-a">
+                            <h5>[{oxmultilang ident="PRODUCT_MAIN_DISCOUNTS"}]</h5>
+                        [{foreach from=$oDetailsProduct->getDiscounts() item="oDiscount"}]
+                            <p><span style="white-space: pre;">[{$oDiscount->oxdiscount__oxtitle->value}] -[{$oDiscount->oxdiscount__oxaddsum->value}][{$oDiscount->oxdiscount__oxaddsumtype->value}] [{$oDiscount->oxdiscount__oxshortdesc->value}]</span></p>
+                        [{/foreach}]
+                        </div>
+                     [{/if}]
 
                     [{oxhasrights ident="TOBASKET"}]
                     [{if $oDetailsProduct->isBuyable()}]

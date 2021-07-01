@@ -19,7 +19,15 @@
                 [{if $oView->getClassName()=='start' && $oView->getBanners() && !empty($oView->getBanners())}]
                     [{include file="widget/promoslider.tpl"}]
                 [{/if}]
+                </div>
             </div>
+
+            <div class="[{if $blFullwidth}]container-fluid[{else}]container[{/if}]">
+                <div class="row">
+                    [{if $oView->getClassName()=='start' && $oView->getTiles() && !empty($oView->getTiles())}]
+                    [{include file="widget/tile.tpl"}]
+                    [{/if}]
+                </div>
             </div>
 
             <div class="[{if $blFullwidth}]container[{else}]container-fluid[{/if}]">

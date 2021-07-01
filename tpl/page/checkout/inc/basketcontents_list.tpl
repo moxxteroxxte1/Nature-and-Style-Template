@@ -196,8 +196,14 @@
 
                                     [{if !$oArticle->isUnique()}]
                                         [{if !$basketitem->isBundle() || !$basketitem->isDiscountArticle()}]
+                                            [{assign var="oxcmp_user" value=$oView->getUser()}]
+                                            [{if $oxcmp_user && $oxcmp_user->inGroup('oxiddealer') && $oArticle->oxarticles__oxamountinpu->value}]
+                                                [{assign var="unit" value=$oArticle->getPackagingUnit()}]
+                                            [{else}]
+                                                [{assign var="unit" value=1}]
+                                            [{/if}]
                                             <div class="input-group input-group-sm justify-content-end">
-                                                <input id="am_[{$smarty.foreach.basketContents.iteration}]" type="number" class="textbox form-control text-center" name="aproducts[[{$basketindex}]][am]" value="[{$basketitem->getAmount()}]" size="3" min="0" style="width:60px;float:right;"[{if $oConfig->getConfigParam('blAllowUnevenAmounts')}] step="any"[{/if}]>
+                                                <input id="am_[{$smarty.foreach.basketContents.iteration}]" type="number" class="textbox form-control text-center" name="aproducts[[{$basketindex}]][am]" value="[{$basketitem->getAmount()}]" size="3" min="[{$unit}]" step="[{$unit}]" style="width:60px;float:right;"[{if $oConfig->getConfigParam('blAllowUnevenAmounts')}] step="any"[{/if}]>
                                                 <span class="input-group-append">
                                                     <span class="input-group-text">
                                                         [{if $basketitem->oxarticles__oxunitname->value}]

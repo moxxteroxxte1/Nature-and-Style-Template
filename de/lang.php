@@ -27,6 +27,9 @@ $aLang = [
     //NAS
     'USER_NOT_ACTIVATED'                                    => 'Warten auf Freigabe',
     'MESSAGE_LOGIN_TO_ADD_CART'                             => 'Sie müssen angemeldet sein, um Artikel in den Warenkorb hinzufügen zu können.',
+    'PRODUCT_MAIN_DISCOUNTS'                                => 'Die folgenden Rabatte gelten für Sie.',
+    'PRODUCT_MAIN_PU_WARNINT'                               => 'Dieser Artikel kann nur in Packungsgröße bestellt werden. ',
+    'ARTICLE_NEW_BADGE'                                     => 'NEU',
 
     // Global
     'DD_SORT_DESC'                                          => 'absteigend',

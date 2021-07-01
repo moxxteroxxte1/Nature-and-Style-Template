@@ -9,14 +9,185 @@ body {
 }
 
 * {
-    color: #444547 !important;
+    color: var(--nas-text-color) !important;
 }
 
-/* Buttons in NaS-Farbe + SearchButton in NaS-Farbe */
-input#searchParam{
-    border: 1px solid #202020;
+/* Button Anmelden*/
+
+.menu-dropdowns button.btn.btn-primary.dropdown-toggle {
+    font-size: 1rem;
+    margin-right: 5rem;
+}
+
+/* LOGO */
+img[alt="Nature and Style"] {
+    width: 60%;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border: none;
+    border-radius: .25rem;
+}
+
+.menus-col > .menu-dropdowns {
+    text-align: left !important;
+}
+
+/* TILES */
+
+#tile {
+    margin: 2rem auto;
+}
+
+#tile a:link {
+    text-decoration: none;
+    color: #292b2b;
+}
+
+#tile > * {
+    /*margin: .1em;*/
+    text-align: left;
+}
+
+#tile h3, #tile span {
+    padding-left: 1rem;
+    /*color: #ffffff !important;*/
+}
+
+#tile h3 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#tile1 {
+    background-color: var(--nas-tile1);
+}
+
+#tile2 {
+    background-color: var(--nas-tile2);
+}
+
+#tile3 {
+    background-color: var(--nas-tile3);
+}
+
+#tile4 {
+    background-color: var(--nas-tile4);
+}
+
+#tile1, #tile2, #tile3, #tile4 {
+    padding: 20px 0px;
+    border: none;
+}
+
+
+#tile2, #tile4, #tileIMG1, #tileIMG3 {
+    border-radius: .25rem .25rem 0px 0px;
+}
+
+#tile1, #tile3, #tileIMG2, #tileIMG4 {
+    border-radius: 0px 0px .25rem .25rem;
+}
+
+
+/* TOOLTIP */
+
+.tooltip > * {
+    color: #FFFFFF !important;
+}
+
+
+span.badge {
+    border-radius: 50% !important;
+}
+
+/* SLIDER */
+
+#promo-carousel .flexslider {
+    opacity: 100% !important;
+}
+
+#promo-carousel li.item > a > img {
+    opacity: 0.65 !important;
+}
+
+#promo-carousel p.flex-caption {
+    background: transparent !important;
+    top: 70%;
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    opacity: 100% !important;
+}
+
+#promo-carousel p.flex-caption > a > span {
+    text-transform: uppercase;
+
+    overflow: hidden;
+    text-align: center;
+}
+
+#promo-carousel p.flex-caption > a > span.title:before, #promo-carousel p.flex-caption > a > span.title:after {
+    background-color: var(--nas-text-color);
+    content: "";
+    display: inline-block;
+    height: 4px;
+    position: relative;
+    vertical-align: middle;
+    width: 20%;
+}
+
+#promo-carousel p.flex-caption > a > span.title:before {
+    right: 0.5em;
+    margin-left: auto;
+}
+
+#promo-carousel p.flex-caption > a > span.title:after {
+    left: 0.5em;
+    margin-right: auto;
+}
+
+#promo-carousel p.flex-caption > a > span.shortdesc {
+    opacity: 100%;
+    font-size: 0.5em !important;
+}
+
+/* SLIDER END */
+/* #434647Buttons in NaS-Farbe + SearchButton in NaS-Farbe */
+input#searchParam {
+    border: 1px solid var(--nas-text-color);
     border-radius: .25rem 0px 0px .25rem;
     border-right-style: none;
+}
+
+form#searchForm {
+    width: 80%;
+    margin-left: auto;
+}
+
+li.dropdown-item:hover > a.dropdown-link, li.dropdown-item.active > a.dropdown-link, li.list-group-item:hover > a.list-group-link, li.list-group-item.active > a.list-group-link, li.dropdown-menu-item:hover > a, li.filter-item:hover > a.filter-link, li.filter-item.active > a.filter-link, li.filter-item.selected > a.filter-link {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+}
+
+li.dropdown-item:hover, li.dropdown-item.active, li.list-group-item.active, li.list-group-item:hover, a.btn.btn-primary, button.btn.btn-primary, a.btn.btn-block.btn-info, a.forgotPasswordOpener.btn.btn-tertiary:hover, li.dropdown-menu-item:hover, li.filter-item.active, li.filter-item.selected, li.filter-item:hover, ul#itemsPager > li.page-item.active > a, ul#itemsPagerbottom > li.page-item.active > a {
+    background-color: var(--nas-blue) !important;
+    color: #FFFFFF !important;
+}
+
+ul#itemsPager > li.page-item.active > a, ul#itemsPagerbottom > li.page-item.active > a {
+    border: 1px solid transparent;
+}
+
+li.list-group-item:hover, li.list-group-item.active {
+    border: 1px solid transparent;
+}
+
+a#registerLink:hover {
+    background-color: #FFFFFF !important;
+    border: 1px solid var(--nas-blue) !important;
+    filter: none !important;
+
 }
 
 button#searchSubmit {
@@ -32,7 +203,11 @@ button#searchSubmit:hover {
     border-radius: 0px .25rem .25rem 0px;
 }
 
-a.btn:hover {
+a.btn, button.btn {
+    border: 1px solid transparent !important;
+}
+
+a.btn:hover, button.btn:hover {
     background-color: var(--nas-blue);
     filter: brightness(85%);
     border: 1px solid transparent;
@@ -43,30 +218,92 @@ button#searchSubmit p {
     color: #FFFFFF !important;
 }
 
-a.btn.btn-primary, button.btn.btn-primary, a.btn.btn-block.btn-info{
-    background-color: var(--nas-blue) !important;
-    color: #FFFFFF !important;
+a.forgotPasswordOpener.btn.btn-tertiary {
+    filter: none !important;
 }
 
-a.dropdown-link:hover, a.btn.btn-outline-dark:hover {
-    color: #FFFFFF !important;
-    background-color: var(--nas-blue);
+.btn.btn-warning {
+    border: 1px solid #ced4da !important;
+    background-color: transparent !important;
+}
+
+.btn.btn-warning:hover {
+    background-color: transparent !important;
+}
+
+a.btn.btn-danger, span.badge, button.btn.btn-danger {
+    background-color: var(--nas-red) !important;
     border: 1px solid transparent;
+    color: #FFFFFF !important;
 }
 
-li.nav-item > a, li.dropdown-link > a {
-    display: inline-block;
-    position: relative;
-    text-transform: uppercase;
+button.btn.btn-outline-dark.hasTooltip {
+    background-color: #FFFFFF !important;
+    border: 1px solid var(--nas-blue) !important;
+    filter: none;
+}
+
+button.btn.btn-outline-dark.hasTooltip:hover {
+    filter: brightness(85%);
+}
+
+i.fa.fa-power-off, i.fa.fa-check, i.fa.fa-caret-right, i.fa.fa-angle-down.d-none.d-md-inline-block, button#toBasket > i.fa.fa-shopping-cart, button.btn.btn-primary.hasTooltip > i.fa.fa-shopping-cart, button.btn.btn-primary > i.fa.fa-envelope, i.fa.fa-trash, i.fa.fa-times {
+    color: #FFFFFF !important;
+}
+
+button#userChangeAddress:hover, button[name="updateBtn"]:hover {
+    color: #FFFFFF !important;
+    background-color: #ffc107 !important;
+    filter: brightness(85%);
+}
+
+span.lead {
     font-weight: bold;
 }
 
-li.nav-item > a:after, li.dropdown-link > a {
+ul#services {
+    padding-bottom: 1rem;
+}
+
+a.btn.btn-outline-dark {
+    border: 1px solid transparent;
+}
+
+a.btn.btn-outline-dark:hover, button.btn.btn-outline-dark.btn-sm.dropdown-toggle:hover {
+    background-color: #FFFFFF !important;
+    border: 1px solid var(--nas-blue) !important;
+    filter: none;
+}
+
+/* Red Outline Button, on hover full red*/
+button.btn.btn-sm.btn-outline-danger {
+    border: 1px solid var(--nas-red) !important;
+}
+
+button.btn.btn-sm.btn-outline-danger:hover {
+    background-color: var(--nas-red) !important;
+    color: #FFFFFF !important;
+    filter: none;
+}
+
+button.btn.btn-outline-dark.btn-sm.dropdown-toggle {
+    background-color: #FFFFFF !important;
+}
+
+/* Underlining */
+li.nav-item > a.nav-link {
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: lighter;
+}
+
+li.nav-item > a.nav-link:after {
     content: '';
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    height: 2px;
+    height: 3px;
     bottom: 0;
     left: 0;
     background-color: var(--nas-blue);
@@ -74,17 +311,19 @@ li.nav-item > a:after, li.dropdown-link > a {
     transition: transform 0.25s linear;
 }
 
-li.nav-item > a:hover:after, li.dropdown-link > a {
+li.nav-item > a.nav-link:hover:after {
     transform: scaleX(1);
     transform-origin: bottom;
 }
 
-nav#mainnav, article.cmsContent
-{
+nav#mainnav, article.cmsContent {
     padding-bottom: 10px;
     justify-content: center;
     display: grid;
 }
+
+/* Warenkorb-Leiste */
+
 
 li.step {
     border-top: 3px solid var(--nas-blue);
@@ -94,40 +333,55 @@ li.step {
 li.step.passed {
     border-top: 3px solid !important;
     border-image-slice: 1;
-    border-image-source: linear-gradient(90deg, rgba(49,196,86,1) 50%, rgba(240,93,67,1) 50%);
-}
-
-li.step.active{
-    border-top: 3px solid !important;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(90deg, rgba(240,93,67,1) 50%, rgba(84,149,188,1) 50%);
+    border-image-source: linear-gradient(90deg, rgba(49, 196, 86, 1) 50%, rgba(240, 93, 67, 1) 50%);
 }
 
 li.step.active {
-    border-top: 3px solid #f05d43 !important;
+    border-top: 3px solid !important;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, rgba(240, 93, 67, 1) 50%, rgba(84, 149, 188, 1) 50%);
+    border-top: 3px solid var(--nas-red) !important;
 }
 */
-
 li.step > a .num, li.step > .num {
     background-color: var(--nas-blue) !important;
     color: #FFFFFF !important;
 }
 
 li.step.passed > a .num, li.step.passed > .num {
-    background-color: #31c456 !important;
+    background-color: var(--nas-green) !important;
 }
 
 li.step.active > a .num, li.step.active > .num {
-    background-color: #f05d43 !important;
+    background-color: var(--nas-red) !important;
 }
 
 ol.checkoutSteps.checkout-steps.row {
     border: none;
 }
 
+/* Social Links */
+li.social-links-item:hover > a > i.fab.fa-youtube {
+    color: #c4302b !important;
+}
 
+li.social-links-item:hover > a > i.fab.fa-twitter {
+    color: #1DA1F2 !important;
+}
 
+li.social-links-item:hover > a > i.fab.fa-facebook-f {
+    color: #3b5998 !important;
+}
 
+li.social-links-item:hover > a > i.fab.fa-wordpress {
+    color: #21759b !important;
+}
+
+li.social-links-item:hover > a > i.fab.fa-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -137,6 +391,16 @@ ol.checkoutSteps.checkout-steps.row {
  */
 :root {
     --nas-blue: #5495BC;
+    --nas-red: #f05d43;
+    --nas-green: #31c456;
+    --nas-text-color: #292b2b;
+    --nas-new: coral;
+
+    /* tile colors */
+    --nas-tile1: #518394;
+    --nas-tile2: #9EC2BF;
+    --nas-tile3: #D9D5D0;
+    --nas-tile4: #9CA1A2;
 
     --blue: #007bff;
     --indigo: #6610f2;
@@ -420,6 +684,10 @@ legend {
     line-height: inherit;
     color: inherit;
     white-space: normal
+}
+
+p.new {
+    color: var(--nas-new) !important;
 }
 
 progress {

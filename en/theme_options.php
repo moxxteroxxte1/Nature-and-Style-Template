@@ -202,7 +202,8 @@ $aLang = array(
     'SHOP_THEME_blEcondaRecommendationsBasket'      => 'Show recommendations in basket',
     'SHOP_THEME_sEcondaWidgetIdBasket'              => 'Recommendation-Widget-ID für Warenkorb',
 
-    'SHOP_THEME_blFullwidthLayout'                      => 'Activate full width layout',
+    'SHOP_THEME_blFullwidthLayout'                  => 'Activate full width layout',
+    'SHOP_THEME_sAccentColor'                       => 'Accent Color for Shop frontend',
 
     'SHOP_THEME_blEmailsShowProductPictures'        => 'Show product pictures in emails',
 );

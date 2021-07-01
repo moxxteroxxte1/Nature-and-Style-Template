@@ -48,7 +48,11 @@
                 [{else}]
                     <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
                 [{/if}]
+                [{if $oxcmp_user && $oxcmp_user->inGroup('oxiddealer') && $product->oxarticles__oxamountinpu->value}]
+                    <input type="hidden" name="am" value="[{$product->oxarticles__oxpackagingunit->value}]">
+                [{else}]
                     <input type="hidden" name="am" value="1">
+                [{/if}]
                 [{/oxhasrights}]
             [{else}]
                 <input type="hidden" name="cl" value="details">
@@ -76,6 +80,12 @@
                             </a>
                         </div>
                     [{/block}]
+
+                    [{if $product->isNew()}]
+                        <div>
+                            <p class="new">[{oxmultilang ident="ARTICLE_NEW_BADGE"}]</p>
+                        </div>
+                    [{/if}]
 
                     [{block name="widget_product_listitem_infogrid_shortdesc"}]
                         <div class="shortdesc">

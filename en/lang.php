@@ -26,6 +26,9 @@ $aLang = [
     
     'USER_NOT_ACTIVATED'                                    => 'Waiting for approval.',
     'MESSAGE_LOGIN_TO_ADD_CART'                             => 'MISSING_MESSAGE_LOGIN_TO_ADD_CART',
+    'PRODUCT_MAIN_DISCOUNTS'                                => 'The following discounts apply to you.',
+    'PRODUCT_MAIN_PU_WARNINT'                               => 'This item can be ordered only in package size. ',
+    'ARTICLE_NEW_BADGE'                                     => 'NEW',
 
     // Global
     'DD_SORT_DESC'                                          => 'descending',

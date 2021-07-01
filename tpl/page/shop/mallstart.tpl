@@ -1,5 +1,4 @@
 [{capture append="oxidBlock_pageBody"}]
-
 <div id="page">
     <div id="header" class="clear">
        [{include file="widget/header/languages.tpl"}]

@@ -1,6 +1,7 @@
 <div class="topPopList">
     [{block name="widget_header_servicebox_flyoutbox"}]
         <span class="lead">[{oxmultilang ident="ACCOUNT"}]</span>
+        <hr class="solid">
         <div class="flyoutBox">
             <ul id="services" class="list-unstyled">
                 [{block name="widget_header_servicebox_items"}]

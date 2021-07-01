@@ -51,14 +51,17 @@
                     [{else}]
                         <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
                     [{/if}]
-                    <input id="am_[{$testid}]" type="hidden" name="am" value="1">
+                    [{if $oxcmp_user && $oxcmp_user->inGroup('oxiddealer') && $product->oxarticles__oxamountinpu->value}]
+                        <input type="hidden" name="am" value="[{$product->oxarticles__oxpackagingunit->value}]">
+                    [{else}]
+                        <input type="hidden" name="am" value="1">
+                    [{/if}]
                 [{/oxhasrights}]
             [{else}]
                 <input type="hidden" name="cl" value="details">
                 <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
             [{/if}]
         </div>
-
         <div class="row listDetails">
             <div class="col-12 col-md-2">
                 <div class="picture">
@@ -74,7 +77,20 @@
                     <div class="title">
                         <a id="[{$testid}]" href="[{$_productLink}]" title="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]">[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]</a>
                     </div>
+                    <div>
+                        [{if $product->isNew()}]
+                            <p class="pt-2 new">[{oxmultilang ident='ARTICLE_NEW_BADGE'}]</p>
+                        [{else}]
+                            <p style="height: 10%;"></p>
+                        [{/if}]
+                    </div>
                 [{/block}]
+
+                [{if $oDetailsProduct->oxarticles__oxnew->value}]
+                <div>
+                    <span class="pt-2" style="color: #E98D1D !important;">NEU</span>
+                </div>
+                [{/if}]
 
                 [{block name="widget_product_listitem_line_description"}]
                     <div class="description">
@@ -187,7 +203,12 @@
 
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input id="amountToBasket_[{$testid}]" type="text" name="am" value="1" size="3" autocomplete="off" class="form-control amount">
+                                        [{if $oxcmp_user && $oxcmp_user->inGroup('oxiddealer') && $product->oxarticles__oxamountinpu->value}]
+                                        [{assign var="iAmount" value=$product->oxarticles__oxpackagingunit->value}]
+                                            <input id="amountToBasket_[{$testid}]" type="number" name="am" value="[{$iAmount}]" min="[{$iAmount}]" step="[{$iAmount}]" size="3" autocomplete="off" class="form-control amount">
+                                        [{else}]
+                                            <input id="amountToBasket_[{$testid}]" type="number" name="am" value="1" size="3" autocomplete="off" class="form-control amount">
+                                        [{/if}]
                                         <span class="input-group-append">
                                             <button id="toBasket_[{$testid}]" type="submit" aria-label="[{oxmultilang ident="TO_CART"}]" class="btn btn-primary hasTooltip" title="[{oxmultilang ident="TO_CART"}]" data-container="body">
                                                 <i class="fa fa-shopping-cart"></i>

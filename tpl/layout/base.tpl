@@ -203,6 +203,11 @@
                 }
             </style>
         [{/if}]
+
+        [{assign var="oConfig" value=$oViewConf->getConfig()}]
+        <script type="text/javascript">
+            document.querySelector(':root').style.setProperty('--nas-blue', '[{$oConfig->getConfigParam('sAccentColor')}]')
+        </script>
     </head>
 
     <body class="cl-[{$oView->getClassName()}][{if $smarty.get.plain == '1'}] popup[{/if}][{if $blIsCheckout}] is-checkout[{/if}][{if $oxcmp_user && $oxcmp_user->oxuser__oxpassword->value}] is-logged-in[{/if}]">
