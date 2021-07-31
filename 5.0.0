@@ -1,0 +1,8 @@
++ postcss@8.3.6
+added 4 packages from 39 contributors, updated 1 package, moved 1 package and audited 910 packages in 6.063s
+
+71 packages are looking for funding
+  run `npm fund` for details
+
+found 153 vulnerabilities (39 low, 31 moderate, 83 high)
+  run `npm audit fix` to fix them, or `npm audit` for details

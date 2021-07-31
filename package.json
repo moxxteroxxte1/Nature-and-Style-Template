@@ -1,5 +1,5 @@
 {
-  "name": "Nature and Style Theme",
+  "name": "Nature-and-Style-Theme",
   "version": "1.0.0",
   "description": "Nature and Style Theme",
   "main": "index.js",
@@ -44,5 +44,7 @@
     "url": "https://github.com/moxxteroxxte1/Nature-and-Style-Template"
   },
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "postcss": "^8.3.6"
+  }
 }
