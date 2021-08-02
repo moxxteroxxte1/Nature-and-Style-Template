@@ -175,9 +175,14 @@
                             <div class="btn-group">
                                 [{if $blShowToBasket}]
                                     [{oxhasrights ident="TOBASKET"}]
-                                        <button type="submit" aria-label="[{oxmultilang ident="TO_CART"}]" class="btn btn-outline-dark hasTooltip" data-placement="bottom" title="[{oxmultilang ident="TO_CART"}]" data-container="body">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
+                                [{if $product->getStock() > 0}]
+                                [{assign var="ident" value="TO_CART"}]
+                                [{else}]
+                                [{assign var="ident" value="PRE_ORDER"}]
+                                [{/if}]
+                                <button type="submit" class="btn btn-outline-dark hasTooltip" aria-label="[{oxmultilang ident=$ident}]" data-placement="bottom" title="[{oxmultilang ident=$ident}]" data-container="body">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
                                     [{/oxhasrights}]
                                     <a class="btn btn-primary" href="[{$_productLink}]" >[{oxmultilang ident="MORE_INFO"}]</a>
                                 [{else}]
