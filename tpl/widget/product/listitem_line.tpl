@@ -215,7 +215,7 @@
                                             [{else}]
                                                 [{assign var="ident" value="PRE_ORDER"}]
                                             [{/if}]
-                                            <button type="submit" class="btn btn-outline-dark hasTooltip" aria-label="[{oxmultilang ident=$ident}]" data-placement="bottom" title="[{oxmultilang ident=$ident}]" data-container="body">
+                                            <button id="toBasket_[{$testid}]" type="submit" aria-label="[{oxmultilang ident=$ident}]" class="btn btn-primary hasTooltip" title="[{oxmultilang ident=$ident}]" data-container="body">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </button>
                                             [{if $removeFunction && (($owishid && ($owishid==$oxcmp_user->oxuser__oxid->value)) || (($wishid==$oxcmp_user->oxuser__oxid->value)) || $recommid)}]
