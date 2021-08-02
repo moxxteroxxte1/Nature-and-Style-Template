@@ -282,7 +282,12 @@
                                         <input type="hidden" id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
                                         <div>
                                     [{/if}]
-                                            <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="btn btn-primary submitButton" data-disabledtext="[{oxmultilang ident=$to_cart_ident}]"><i class="fa fa-shopping-cart"></i> [{oxmultilang ident="TO_CART"}]</button>
+                                            [{if $product->getStock() > 0}]
+                                                [{assign var="ident" value="TO_CART"}]
+                                            [{else}]
+                                                [{assign var="ident" value="PRE_ORDER"}]
+                                            [{/if}]
+                                            <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="btn btn-primary submitButton" data-disabledtext="[{oxmultilang ident=$to_cart_ident}]"><i class="fa fa-shopping-cart"></i> [{oxmultilang ident=$ident}]</button>
                                         </div>
                                     </div>
                                 [{/if}]

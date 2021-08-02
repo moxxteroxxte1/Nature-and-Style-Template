@@ -210,7 +210,12 @@
                                             <input id="amountToBasket_[{$testid}]" type="number" name="am" value="1" size="3" autocomplete="off" class="form-control amount">
                                         [{/if}]
                                         <span class="input-group-append">
-                                            <button id="toBasket_[{$testid}]" type="submit" aria-label="[{oxmultilang ident="TO_CART"}]" class="btn btn-primary hasTooltip" title="[{oxmultilang ident="TO_CART"}]" data-container="body">
+                                            [{if $product->getStock() > 0}]
+                                                [{assign var="ident" value="TO_CART"}]
+                                            [{else}]
+                                                [{assign var="ident" value="PRE_ORDER"}]
+                                            [{/if}]
+                                            <button type="submit" class="btn btn-outline-dark hasTooltip" aria-label="[{oxmultilang ident=$ident}]" data-placement="bottom" title="[{oxmultilang ident=$ident}]" data-container="body">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </button>
                                             [{if $removeFunction && (($owishid && ($owishid==$oxcmp_user->oxuser__oxid->value)) || (($wishid==$oxcmp_user->oxuser__oxid->value)) || $recommid)}]

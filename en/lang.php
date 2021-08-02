@@ -29,6 +29,7 @@ $aLang = [
     'PRODUCT_MAIN_DISCOUNTS'                                => 'The following discounts apply to you.',
     'PRODUCT_MAIN_PU_WARNINT'                               => 'This item can be ordered only in package size. ',
     'ARTICLE_NEW_BADGE'                                     => 'NEW',
+    'PRE_ORDER'                                             => 'Pre-order',
 
     // Global
     'DD_SORT_DESC'                                          => 'descending',
