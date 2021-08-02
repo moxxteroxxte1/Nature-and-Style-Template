@@ -282,7 +282,7 @@
                                         <input type="hidden" id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
                                         <div>
                                     [{/if}]
-                                            [{if $product->getStock() > 0}]
+                                            [{if $oDetailsProduct->getStock() > 0}]
                                                 [{assign var="ident" value="TO_CART"}]
                                             [{else}]
                                                 [{assign var="ident" value="PRE_ORDER"}]
