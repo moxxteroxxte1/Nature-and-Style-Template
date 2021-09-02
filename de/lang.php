@@ -31,6 +31,7 @@ $aLang = [
     'PRODUCT_MAIN_PU_WARNINT'                               => 'Dieser Artikel kann nur in Packungsgröße bestellt werden. ',
     'ARTICLE_NEW_BADGE'                                     => 'NEU',
     'PRE_ORDER'                                             => 'Vorbestellen',
+    'MARKED_SHIPPING'                                       => 'Speditionsversand',
 
     // Global
     'DD_SORT_DESC'                                          => 'absteigend',

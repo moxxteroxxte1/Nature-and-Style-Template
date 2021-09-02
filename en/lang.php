@@ -30,6 +30,7 @@ $aLang = [
     'PRODUCT_MAIN_PU_WARNINT'                               => 'This item can be ordered only in package size. ',
     'ARTICLE_NEW_BADGE'                                     => 'NEW',
     'PRE_ORDER'                                             => 'Pre-order',
+    'MARKED_SHIPPING'                                       => 'Freight forwarding',
 
     // Global
     'DD_SORT_DESC'                                          => 'descending',
