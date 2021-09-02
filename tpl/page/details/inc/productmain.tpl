@@ -330,6 +330,11 @@
                             </span>
                         [{/if}]
                         [{/block}]
+                        <lable>
+                            <span class="stockFlag">
+                                <i class="fas fa-truck"></i> &nbsp; [{oxmultilang ident="MARKED_SHIPPING"}]
+                            </span>
+                        </lable>
                     [{/if}]
 
                     [{if $oDetailsProduct->oxarticles__oxamountinpu->value && $oxcmp_user && $oxcmp_user->inGroup('oxiddealer')}]
@@ -338,14 +343,14 @@
                         </div>
                     [{/if}]
 
-                    [{if $oDetailsProduct->getDiscounts()}]
+                    [{if $oDetailsProduct->getDiscounts() && $oxcmp_user}]
                         <div class="alert alert-success mt-2 p-a">
                             <h5>[{oxmultilang ident="PRODUCT_MAIN_DISCOUNTS"}]</h5>
                         [{foreach from=$oDetailsProduct->getDiscounts() item="oDiscount"}]
                             <p><span style="white-space: pre;">[{$oDiscount->oxdiscount__oxtitle->value}] -[{$oDiscount->oxdiscount__oxaddsum->value}][{$oDiscount->oxdiscount__oxaddsumtype->value}] [{$oDiscount->oxdiscount__oxshortdesc->value}]</span></p>
                         [{/foreach}]
                         </div>
-                     [{/if}]
+                    [{/if}]
 
                     [{oxhasrights ident="TOBASKET"}]
                     [{if $oDetailsProduct->isBuyable()}]
