@@ -18,7 +18,15 @@
             [{assign var="sTileLink" value=$oTile->getLink()}]
 
             [{if $sTileLink}]
-            <a href="[{$sTileLink}]" title="[{$sTileTitle}]">
+
+
+            [{if !$sTileLink|strstr:$oView->getShopUrl()}]
+            [{assign var="target" value="_blank"}]
+            [{else}]
+            [{assign var="target" value="_self"}]
+            [{/if}]
+
+            <a href="[{$sTileLink}]" target="[{$target}]" title="[{$sTileTitle}]">
                 [{/if}]
 
                 [{if $smarty.foreach.tileList.iteration is odd by 1}]
