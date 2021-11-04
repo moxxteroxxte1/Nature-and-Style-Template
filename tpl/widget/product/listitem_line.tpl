@@ -163,11 +163,6 @@
 
                         [{if $oUnitPrice}]
                             <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit text-nowrap">[{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{oxprice price=$oUnitPrice currency=$currency}]/[{$product->getUnitName()}]</span>
-                        [{elseif $product->oxarticles__oxweight->value }]
-                            <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit text-nowrap">
-                                <span title="weight">[{oxmultilang ident="WEIGHT"}]</span>
-                                <span class="value">[{$product->oxarticles__oxweight->value}] [{oxmultilang ident="KG"}]</span>
-                            </span>
                         [{/if}]
                         [{/oxhasrights}]
                     [{/block}]
@@ -210,10 +205,10 @@
                                             <input id="amountToBasket_[{$testid}]" type="number" name="am" value="1" size="3" autocomplete="off" class="form-control amount">
                                         [{/if}]
                                         <span class="input-group-append">
-                                            [{if $product->getStock() > 0}]
-                                                [{assign var="ident" value="TO_CART"}]
+                                            [{if $product->getStock() > 0 || $oxcmp_user->inGroup('oxiddealer')}]
+                                            [{assign var="ident" value="TO_CART"}]
                                             [{else}]
-                                                [{assign var="ident" value="PRE_ORDER"}]
+                                            [{assign var="ident" value="PRE_ORDER"}]
                                             [{/if}]
                                             <button id="toBasket_[{$testid}]" type="submit" aria-label="[{oxmultilang ident=$ident}]" class="btn btn-primary hasTooltip" title="[{oxmultilang ident=$ident}]" data-container="body">
                                                 <i class="fa fa-shopping-cart"></i>

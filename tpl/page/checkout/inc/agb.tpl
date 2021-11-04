@@ -61,7 +61,8 @@
                     [{/if}]
                 [{/if}]
 
-                [{if $oViewConf->isFunctionalityEnabled("blShowTSInternationalFeesMessage")}]
+                <p>[{$deliveryCost}]</p>
+                [{if $oViewConf->isFunctionalityEnabled("blShowTSInternationalFeesMessage") && !$oView->getDeliveryPrice()}]
                     [{oxifcontent ident="oxtsinternationalfees" object="oTSIFContent"}]
                         <hr/>[{$oTSIFContent->oxcontents__oxcontent->value}]
                     [{/oxifcontent}]

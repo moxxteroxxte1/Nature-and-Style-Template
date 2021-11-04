@@ -21,9 +21,9 @@
 
 
 
-                    <div class="col-8 col-md-7">
+                    <div class="col-8 col-md-9">
                         <div class="row">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-4">
                             [{block name="checkout_basketcontents_basketitem_titlenumber"}]
                                 [{block name="checkout_basketcontents_basketitem_title"}]
                                     [{if $editable}]<a rel="nofllow" href="[{$basketitem->getLink()}]">[{/if}]
@@ -105,7 +105,7 @@
                                 [{/block}]
                             [{/block}]
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-4">
                                 [{block name="checkout_basketcontents_basketitem_wrapping"}]
                                     [{* product wrapping *}]
                                     [{if $oView->isWrapping()}]
@@ -137,31 +137,34 @@
                                     </span>
                                 [{/block}]
 
-                                [{block name="checkout_basketcontents_basketitem_amount"}]
-                                    [{* product price *}]
-                                    <span class="amount">
-                                        <small>
-                                            [{if $basketitem->getFUnitPrice()}] | [{/if}]
-                                            [{if $basketitem->oxarticles__oxunitname->value}]
-                                                [{$basketitem->getAmount()}] [{$basketitem->oxarticles__oxunitname->value}]
-                                            [{else}]
-                                                [{$basketitem->getAmount()}] [{oxmultilang ident="PCS"}]
-                                            [{/if}]
-                                        </small>
-                                    </span>
-                                [{/block}]
+
                                 [{block name="checkout_basketcontents_basketitem_vat"}]
                                     <div class="article-Vat">
                                         <small>[{$basketitem->getVatPercent()}]% [{oxmultilang ident="VAT"}]</small>
                                     </div>
                                 [{/block}]
                             </div>
+                            <div class="col-12 col-md-4">
+                            [{block name="checkout_basketcontents_basketitem_amount"}]
+                            [{* product price *}]
+                            <span class="amount">
+                                        <p>
+                                            [{if $basketitem->getFUnitPrice()}] [{/if}]
+                                            [{if $basketitem->oxarticles__oxunitname->value}]
+                                                [{$basketitem->getAmount()}] [{$basketitem->oxarticles__oxunitname->value}]
+                                            [{else}]
+                                                [{$basketitem->getAmount()}] [{oxmultilang ident="PCS"}]
+                                            [{/if}]
+                                        </p>
+                                    </span>
+                            [{/block}]
+                            </div>
                         </div>
                     </div>
 
 
 
-                    <div class="col-12 col-md-3">
+                    <div class="col-12 col-md">
                         [{if $editable}]
                             <div class="text-right">
                                 <a href="#" class="toggle-actions">
@@ -232,8 +235,6 @@
                                             </span>
                                         </div>
                                     [{/if}]
-                                [{else}]
-                                    [{$basketitem->getAmount()}]
                                 [{/if}]
                                 [{if $basketitem->getdBundledAmount() > 0 && ($basketitem->isBundle() || $basketitem->isDiscountArticle())}]
                                     +[{$basketitem->getdBundledAmount()}]

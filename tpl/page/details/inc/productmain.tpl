@@ -142,15 +142,6 @@
                     [{/block}]
                     [{/oxhasrights}]
 
-
-                    [{if $oDetailsProduct->oxarticles__oxweight->value}]
-                    <div class="weight">
-                        [{block name="details_productmain_weight"}]
-                        [{oxmultilang ident="WEIGHT" suffix="COLON"}] [{$oDetailsProduct->oxarticles__oxweight->value}] [{oxmultilang ident="KG"}]
-                        [{/block}]
-                    </div>
-                    [{/if}]
-
                     [{block name="details_productmain_vpe"}]
                     [{if $oDetailsProduct->oxarticles__oxvpe->value > 1}]
                     <span class="vpe small">[{oxmultilang ident="DETAILS_VPE_MESSAGE_1"}] [{$oDetailsProduct->oxarticles__oxvpe->value}] [{oxmultilang ident="DETAILS_VPE_MESSAGE_2"}]</span>
@@ -170,6 +161,7 @@
                     [{assign var="blCanBuy" value=$isLoggedIn}] [{*true*}]
                     [{/if}]
                     [{/if}]
+                    [{/if}]
                     <div id="variants" class="selectorsBox variant-dropdown js-fnSubmit">
                         [{assign var="blHasActiveSelections" value=false}]
                         [{foreach from=$aVariantSelections.selections item=oList key=iKey}]
@@ -179,7 +171,6 @@
                         [{include file="widget/product/selectbox.tpl" oSelectionList=$oList iKey=$iKey blInDetails=true}]
                         [{/foreach}]
                     </div>
-                    [{/if}]
                     [{/block}]
 
                     [{* selection lists *}]
@@ -229,7 +220,7 @@
                             <span class="price-markup">*</span>
                             [{/if}]
                             <span class="d-none">
-                                                <span itemprop="price">[{$oPrice->getPrice()}]</span>
+                                                <span itemprop="price">[{$oPrice->getBruttoPrice()}]</span>
                                                 <span itemprop="priceCurrency">[{$currency->name}]</span>
                                             </span>
                             </span>
@@ -282,7 +273,7 @@
                                         <input type="hidden" id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
                                         <div>
                                     [{/if}]
-                                            [{if $oDetailsProduct->getStock() > 0}]
+                                            [{if $oDetailsProduct->getStock() > 0 || $oxcmp_user->inGroup('oxiddealer')}]
                                                 [{assign var="ident" value="TO_CART"}]
                                             [{else}]
                                                 [{assign var="ident" value="PRE_ORDER"}]
@@ -296,7 +287,7 @@
                     </div>
                     [{/block}]
 
-                    [{if $oxcmp_user}]
+                    [{if $oxcmp_user && !$oxcmp_user->inGroup('oxiddealer')}]
                         [{block name="details_productmain_stockstatus"}]
                         [{if $oDetailsProduct->getStockStatus() == -1}]
                         <span class="stockFlag notOnStock">
@@ -330,11 +321,13 @@
                             </span>
                         [{/if}]
                         [{/block}]
-                        <lable>
-                            <span class="stockFlag">
-                                <i class="fas fa-truck"></i> &nbsp; [{oxmultilang ident="MARKED_SHIPPING"}]
-                            </span>
-                        </lable>
+                        [{if $oDetailsProduct->isCarrierShipping()}]
+                            <lable style="display: inherit">
+                                <span class="stockFlag">
+                                    <i class="fas fa-truck"></i> &nbsp; [{oxmultilang ident="MARKED_SHIPPING"}]
+                                </span>
+                            </lable>
+                        [{/if}]
                     [{/if}]
 
                     [{if $oDetailsProduct->oxarticles__oxamountinpu->value && $oxcmp_user && $oxcmp_user->inGroup('oxiddealer')}]
@@ -343,14 +336,14 @@
                         </div>
                     [{/if}]
 
-                    [{if $oDetailsProduct->getDiscounts() && $oxcmp_user}]
+                    [{if $oDetailsProduct->getDiscounts()}]
                         <div class="alert alert-success mt-2 p-a">
                             <h5>[{oxmultilang ident="PRODUCT_MAIN_DISCOUNTS"}]</h5>
                         [{foreach from=$oDetailsProduct->getDiscounts() item="oDiscount"}]
                             <p><span style="white-space: pre;">[{$oDiscount->oxdiscount__oxtitle->value}] -[{$oDiscount->oxdiscount__oxaddsum->value}][{$oDiscount->oxdiscount__oxaddsumtype->value}] [{$oDiscount->oxdiscount__oxshortdesc->value}]</span></p>
                         [{/foreach}]
                         </div>
-                    [{/if}]
+                     [{/if}]
 
                     [{oxhasrights ident="TOBASKET"}]
                     [{if $oDetailsProduct->isBuyable()}]

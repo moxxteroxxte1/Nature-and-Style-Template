@@ -45,7 +45,11 @@
                         </h2>
 
                         [{if $subhead}]
-                            <small class="subhead">[{$subhead}]</small>
+                            [{if $oView->getTemplateName() == "page/shop/start.tpl"}]
+                                <small class="subhead">[{$oView->getBargainShortDescription()}]</small>
+                            [{else}]
+                                <small class="subhead">[{$subhead}]</small>
+                            [{/if}]
                         [{/if}]
                     </div>
                 [{/if}]

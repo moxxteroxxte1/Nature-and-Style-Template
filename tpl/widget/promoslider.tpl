@@ -36,7 +36,7 @@
                     [{if $sBannerLink}]
                     <a href="[{$sBannerLink}]" target="[{$target}]" class="flex-caption-link" title="[{$oBanner->getBannerTitle()}]">
                         [{/if}]
-                        <span class="title">[{$oBanner->getBannerTitle()}]</span>[{if $oBanner->getLongDesc()|trim}]<br/><span class="shortdesc">[{$oBanner->getLongDesc()|trim}]</span>[{/if}]
+                        <span class="title" [{if $oBanner->getBannerTextColor() != null}]style="color: [{$oBanner->getBannerTextColor()}] !important"[{/if}]>[{$oBanner->getBannerTitle()}]</span>[{if $oBanner->getLongDesc()|trim}]<br/><span class="shortdesc">[{$oBanner->getLongDesc()|trim}]</span>[{/if}]
                         [{if $sBannerLink}]
                     </a>
                     [{/if}]

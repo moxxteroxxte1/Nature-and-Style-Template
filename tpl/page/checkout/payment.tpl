@@ -24,7 +24,7 @@
                                 <div class="form-group">
                                     <select class="form-control" name="sShipSet" onchange="this.form.submit();">
                                         [{foreach key=sShipID from=$oView->getAllSets() item=oShippingSet name=ShipSetSelect}]
-                                            <option value="[{$sShipID}]" [{if $oShippingSet->blSelected}]SELECTED[{/if}]>[{$oShippingSet->oxdeliveryset__oxtitle->value}]</option>
+                                            <option value="[{$sShipID}]" [{if $oShippingSet->blSelected}]SELECTED[{/if}]> [{if $oxcmp_basket->getDeliveryMultiplier() > 1 && $oShippingSet->blSelected}] [{$oxcmp_basket->getDeliveryMultiplier()}] x [{/if}][{$oShippingSet->oxdeliveryset__oxtitle->value}]</option>
                                         [{/foreach}]
                                     </select>
                                 </div>
@@ -39,7 +39,7 @@
                             [{if $oDeliveryCostPrice && $oDeliveryCostPrice->getPrice() > 0}]
                                 [{if $oViewConf->isFunctionalityEnabled('blShowVATForDelivery') }]
                                     <div id="shipSetCost">
-                                        <b>[{oxmultilang ident="CHARGES" suffix="COLON"}] [{oxprice price=$oDeliveryCostPrice->getNettoPrice() currency=$currency}]
+                                        <b>[{oxmultilang ident="CHARGES" suffix="COLON"}] [{if $oxcmp_basket->hasSurcharge()}]( [{oxmultilang ident="SURCHARGE_APPLIED"}] )[{/if}] [{oxprice price=$oDeliveryCostPrice->getNettoPrice() currency=$currency}]
                                             ([{oxmultilang ident="PLUS_VAT"}] [{oxprice price=$oDeliveryCostPrice->getVatValue() currency=$currency}])
                                         </b>
                                     </div>

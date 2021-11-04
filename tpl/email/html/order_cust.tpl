@@ -38,7 +38,7 @@
 
 [{block name="email_html_order_cust_orderemail"}]
     <p>
-        [{if $payment->oxuserpayments__oxpaymentsid->value == "oxempty"}]
+        [{if $payment->oxuserpayments__oxpaymentsid->value == "oxempty" || ! isset($order->oxorder__oxdeltype) || $order->oxorder__oxdeltype == ""}]
             [{oxcontent ident="oxuserordernpemail"}]
         [{else}]
             [{oxcontent ident="oxuserorderemail"}]
@@ -532,7 +532,7 @@
 [{/block}]
 
 [{block name="email_html_order_cust_deliveryinfo"}]
-    [{if $payment->oxuserpayments__oxpaymentsid->value != "oxempty"}]
+    [{if $payment->oxuserpayments__oxpaymentsid->value != "oxempty" && isset($order->oxorder__oxdeltype) && $order->oxorder__oxdeltype != ""}]
         <h3 class="underline">[{oxmultilang ident="SELECTED_SHIPPING_CARRIER"}]</h3>
         <p>
             <b>[{$order->oDelSet->oxdeliveryset__oxtitle->value}]</b>
