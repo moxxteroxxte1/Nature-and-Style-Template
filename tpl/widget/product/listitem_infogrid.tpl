@@ -158,11 +158,6 @@
                                         <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit">
                                             [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{oxprice price=$oUnitPrice currency=$currency}]/[{$product->getUnitName()}]
                                         </span>
-                                    [{elseif $product->oxarticles__oxweight->value }]
-                                        <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit">
-                                            <span title="weight">[{oxmultilang ident="WEIGHT"}]</span>
-                                            <span class="value">[{$product->oxarticles__oxweight->value}] [{oxmultilang ident="KG"}]</span>
-                                        </span>
                                     [{/if}]
                                 [{/oxhasrights}]
                             [{/block}]
@@ -175,7 +170,7 @@
                             <div class="btn-group">
                                 [{if $blShowToBasket}]
                                     [{oxhasrights ident="TOBASKET"}]
-                                [{if $product->getStock() > 0}]
+                                [{if $product->getStock() > 0 || $oxcmp_user->inGroup('oxiddealer')}]
                                 [{assign var="ident" value="TO_CART"}]
                                 [{else}]
                                 [{assign var="ident" value="PRE_ORDER"}]

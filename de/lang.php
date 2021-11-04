@@ -31,7 +31,12 @@ $aLang = [
     'PRODUCT_MAIN_PU_WARNINT'                               => 'Dieser Artikel kann nur in Packungsgröße bestellt werden. ',
     'ARTICLE_NEW_BADGE'                                     => 'NEU',
     'PRE_ORDER'                                             => 'Vorbestellen',
+    'SURCHARGE_APPLIED'                                     => 'inkl. Inselzuschlag',
     'MARKED_SHIPPING'                                       => 'Speditionsversand',
+    'PLUS_SHIPPING_VAT'                                     => 'zzgl. MwSt und ',
+    'SHIPPING_NOTE'                                         => 'Frachtfrei ab 1.000 € Warenwert',
+    'MX'                                                    => 'Divers',
+    'COMP'                                                  => 'Firma',
 
     // Global
     'DD_SORT_DESC'                                          => 'absteigend',
@@ -85,6 +90,7 @@ $aLang = [
     // Rechnungs- und Lieferadresse
     'DD_USER_LABEL_STATE'                                   => 'Bundesland',
     'DD_USER_SHIPPING_SELECT_ADDRESS'                       => 'auswählen',
+    'SELECTED'                                              => 'ausgewählt',
     'DD_USER_SHIPPING_ADD_DELIVERY_ADDRESS'                 => 'neue Adresse hinzufügen',
     'DD_DELETE_SHIPPING_ADDRESS'                            => 'Lieferadresse löschen',
 
@@ -147,9 +153,12 @@ $aLang = [
     'DD_DELETE_REVIEW_CONFIRMATION_QUESTION'                => 'Sind Sie sicher, dass Sie die Bewertung löschen wollen?',
 
     // Contact page
-    'DD_SELECT_SALUTATION'                                  => 'Bitte auswählen',
+    'DD_SELECT_SALUTATION'                                  => '-',
 
     'DD_CATEGORY_RESET_BUTTON'                              => 'Zurücksetzen',
+
+    'GRAND_TOTAL_NET'                                       => 'Gesamtbetrag (netto)',
+    'VAT_INCL_PERCENT_AMOUNT'                               => 'inkl. %s%% MwSt, Betrag'
 ];
 
 /*

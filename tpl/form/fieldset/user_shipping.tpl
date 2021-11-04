@@ -51,8 +51,8 @@
                                     [{include file="widget/address/shipping_address.tpl" delivadr=$address}]
                                 </div>
                                 <div class="card-footer" >
-                                    <label class="btn btn-outline-dark btn-block[{if $address->isSelected()}] active[{/if}]">
-                                        <input type="radio" name="oxaddressid" value="[{$address->oxaddress__oxid->value}]" class="hidden" autocomplete="off" [{if $address->isSelected()}]checked[{/if}]><i class="fa fa-check"></i> [{oxmultilang ident="DD_USER_SHIPPING_SELECT_ADDRESS"}]
+                                    <label class="btn btn-primary btn-block[{if $address->isSelected()}] active[{/if}]">
+                                        <input type="radio" name="oxaddressid" value="[{$address->oxaddress__oxid->value}]" class="hidden" autocomplete="off" [{if $address->isSelected()}]checked[{/if}]><i class="fa fa-check"></i> [{if $address->isSelected()}][{oxmultilang ident="SELECTED"}][{else}][{oxmultilang ident="DD_USER_SHIPPING_SELECT_ADDRESS"}][{/if}]
                                     </label>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                 [{oxmultilang ident="DD_USER_SHIPPING_ADD_DELIVERY_ADDRESS"}]
                             </div>
                             <div class="card-footer" >
-                                <label class="btn btn-outline-dark btn-block">
+                                <label class="btn btn-primary btn-block">
                                     <input type="radio" name="oxaddressid" value="-1" class="hidden" autocomplete="off"><i class="fa fa-check"></i> [{oxmultilang ident="DD_USER_SHIPPING_SELECT_ADDRESS"}]
                                 </label>
                             </div>

@@ -8,7 +8,17 @@
     <article class="cmsContent">
         [{$oView->getParsedContent()}]
     </article>
+    [{assign var="oSubCats" value=$oContent->getSubCats()}]
+    [{if count($oSubCats) > 0}]
+    <ul class="list-group link-group">
+        [{foreach from=$oSubCats item=aCont}]
+            [{foreach from=$aCont item=ocont}]
+                <li class="list-group-item link-group-item"><a href="[{$ocont->getLink()}]">[{$ocont->getTitle()}]</a></li>
+            [{/foreach}]
+        [{/foreach}]
+    </ul>
+    [{/if}]
 
     [{insert name="oxid_tracker" title=$template_title}]
-[{/capture}]
+    [{/capture}]
 [{include file="layout/page.tpl"}]

@@ -74,61 +74,61 @@
 
             [{* <<START>> Social Links *}]
             [{block name="dd_footer_social_links"}]
-                [{if $oViewConf->getViewThemeParam('sFacebookUrl') || $oViewConf->getViewThemeParam('sTwitterUrl') || $oViewConf->getViewThemeParam('sYouTubeUrl') || $oViewConf->getViewThemeParam('sBlogUrl')}]
-                    <div class="social-links">
-                    [{block name="dd_footer_social_links_inner"}]
-                    <ul class="social-links-list ">
-                        [{block name="dd_footer_social_links_list"}]
-                        [{if $oViewConf->getViewThemeParam('sFacebookUrl')}]
-                        <li class="social-links-item">
-                            <a target="_blank" class="social-links-link"
-                               rel="noopener"
-                               href="[{$oViewConf->getViewThemeParam('sFacebookUrl')}]">
-                                <i class="fab fa-facebook-f"></i> <span>Facebook</span>
-                            </a>
-                        </li>
-                        [{/if}]
-                        [{if $oViewConf->getViewThemeParam('sTwitterUrl')}]
-                        <li class="social-links-item">
-                            <a target="_blank" class="social-links-link"
-                               rel="noopener"
-                               href="[{$oViewConf->getViewThemeParam('sTwitterUrl')}]">
-                                <i class="fab fa-twitter"></i> <span>Twitter</span>
-                            </a>
-                        </li>
-                        [{/if}]
-                        [{if $oViewConf->getViewThemeParam('sYouTubeUrl')}]
-                        <li class="social-links-item">
-                            <a target="_blank" class="social-links-link"
-                               rel="noopener"
-                               href="[{$oViewConf->getViewThemeParam('sYouTubeUrl')}]">
-                                <i class="fab fa-youtube"></i> <span>YouTube</span>
-                            </a>
-                        </li>
-                        [{/if}]
-                        [{if $oViewConf->getViewThemeParam('sBlogUrl')}]
-                        <li class="social-links-item">
-                            <a target="_blank" class="social-links-link"
-                               rel="noopener"
-                               href="[{$oViewConf->getViewThemeParam('sBlogUrl')}]">
-                                <i class="fab fa-wordpress"></i> <span>Blog</span>
-                            </a>
-                        </li>
-                        [{/if}]
-                        [{if $oViewConf->getViewThemeParam('sInstagramUrl')}]
-                        <li class="social-links-item">
-                            <a target="_blank" class="social-links-link"
-                               rel="noopener"
-                               href="[{$oViewConf->getViewThemeParam('sInstagramUrl')}]">
-                                <i class="fab fa-instagram"></i> <span>Instagram</span>
-                            </a>
-                        </li>
-                        [{/if}]
-                        [{/block}]
-                    </ul>
+            [{if $oViewConf->getViewThemeParam('sFacebookUrl') || $oViewConf->getViewThemeParam('sTwitterUrl') || $oViewConf->getViewThemeParam('sYouTubeUrl') || $oViewConf->getViewThemeParam('sBlogUrl')}]
+            <div class="social-links">
+                [{block name="dd_footer_social_links_inner"}]
+                <ul class="social-links-list ">
+                    [{block name="dd_footer_social_links_list"}]
+                    [{if $oViewConf->getViewThemeParam('sFacebookUrl')}]
+                    <li class="social-links-item">
+                        <a target="_blank" class="social-links-link"
+                           rel="noopener"
+                           href="[{$oViewConf->getViewThemeParam('sFacebookUrl')}]">
+                            <i class="fab fa-facebook-f"></i> <span>Facebook</span>
+                        </a>
+                    </li>
+                    [{/if}]
+                    [{if $oViewConf->getViewThemeParam('sTwitterUrl')}]
+                    <li class="social-links-item">
+                        <a target="_blank" class="social-links-link"
+                           rel="noopener"
+                           href="[{$oViewConf->getViewThemeParam('sTwitterUrl')}]">
+                            <i class="fab fa-twitter"></i> <span>Twitter</span>
+                        </a>
+                    </li>
+                    [{/if}]
+                    [{if $oViewConf->getViewThemeParam('sYouTubeUrl')}]
+                    <li class="social-links-item">
+                        <a target="_blank" class="social-links-link"
+                           rel="noopener"
+                           href="[{$oViewConf->getViewThemeParam('sYouTubeUrl')}]">
+                            <i class="fab fa-youtube"></i> <span>YouTube</span>
+                        </a>
+                    </li>
+                    [{/if}]
+                    [{if $oViewConf->getViewThemeParam('sBlogUrl')}]
+                    <li class="social-links-item">
+                        <a target="_blank" class="social-links-link"
+                           rel="noopener"
+                           href="[{$oViewConf->getViewThemeParam('sBlogUrl')}]">
+                            <i class="fab fa-wordpress"></i> <span>Blog</span>
+                        </a>
+                    </li>
+                    [{/if}]
+                    [{if $oViewConf->getViewThemeParam('sInstagramUrl')}]
+                    <li class="social-links-item">
+                        <a target="_blank" class="social-links-link"
+                           rel="noopener"
+                           href="[{$oViewConf->getViewThemeParam('sInstagramUrl')}]">
+                            <i class="fab fa-instagram"></i> <span>Instagram</span>
+                        </a>
+                    </li>
+                    [{/if}]
                     [{/block}]
-                </div>
-                [{/if}]
+                </ul>
+                [{/block}]
+            </div>
+            [{/if}]
             [{/block}]
             [{* <<ENDE>> Social Links *}]
         </div>
@@ -139,12 +139,20 @@
         [{oxifcontent ident="oxdeliveryinfo" object="oCont"}]
         <div class="[{if $blFullwidth}]container[{else}]container-fluid[{/if}]">
             <div class="vat-info">
-                [{if $oView->isVatIncluded()}]
-                <span class="vat-info-text">* [{oxmultilang ident="PLUS_SHIPPING"}]<a
-                        href="[{$oCont->getLink()}]">[{oxmultilang ident="PLUS_SHIPPING2"}]</a></span>
-                [{else}]
-                <span class="vat-info-text">* [{oxmultilang ident="PLUS"}]<a
-                        href="[{$oCont->getLink()}]">[{oxmultilang ident="PLUS_SHIPPING2"}]</a></span>
+                [{if $oxcmp_user}]
+                    [{if $oView->isVatIncluded()}]
+                        [{if $oxcmp_user->inGroup('oxiddealer')}]
+                        <span class="vat-info-text">* [{oxmultilang ident="PLUS_SHIPPING_VAT"}]<a
+                                    href="[{$oCont->getLink()}]">[{oxmultilang ident="PLUS_SHIPPING2"}]</a></span>
+                        [{else}]
+                        <span class="vat-info-text">* [{oxmultilang ident="PLUS_SHIPPING"}]<a
+                                    href="[{$oCont->getLink()}]">[{oxmultilang ident="PLUS_SHIPPING2"}]</a></span>
+                        [{/if}]
+    
+                    [{else}]
+                    <span class="vat-info-text">* [{oxmultilang ident="PLUS"}]<a
+                                href="[{$oCont->getLink()}]">[{oxmultilang ident="PLUS_SHIPPING2"}]</a></span>
+                    [{/if}]
                 [{/if}]
             </div>
         </div>
@@ -156,20 +164,20 @@
     </footer>
 
     [{oxifcontent ident="oxstdfooter" object="oCont"}]
-        <div class="legal">
-            <div class="[{if $blFullwidth}]container[{else}]container-fluid[{/if}]">
-                <section class="legal-box">
-                    [{block name="dd_footer_copyright"}]
-                        [{$oCont->oxcontents__oxcontent->value}]
-                    [{/block}]
-                </section>
-            </div>
+    <div class="legal">
+        <div class="[{if $blFullwidth}]container[{else}]container-fluid[{/if}]">
+            <section class="legal-box">
+                [{block name="dd_footer_copyright"}]
+                [{$oCont->oxcontents__oxcontent->value}]
+                [{/block}]
+            </section>
         </div>
+    </div>
     [{/oxifcontent}]
     [{/block}]
 
-    [{if $oView->isRootCatChanged()}]
-        <div id="scRootCatChanged" class="popupBox corners FXgradGreyLight glowShadow" style="display: none;">
-            [{include file="form/privatesales/basketexcl.tpl"}]
-        </div>
+[{if $oView->isRootCatChanged()}]
+    <div id="scRootCatChanged" class="popupBox corners FXgradGreyLight glowShadow" style="display: none;">
+        [{include file="form/privatesales/basketexcl.tpl"}]
+    </div>
     [{/if}]

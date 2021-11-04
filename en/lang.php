@@ -29,8 +29,11 @@ $aLang = [
     'PRODUCT_MAIN_DISCOUNTS'                                => 'The following discounts apply to you.',
     'PRODUCT_MAIN_PU_WARNINT'                               => 'This item can be ordered only in package size. ',
     'ARTICLE_NEW_BADGE'                                     => 'NEW',
-    'PRE_ORDER'                                             => 'Pre-order',
+    'SURCHARGE_APPLIED'                                     => 'incl island surcharge',
     'MARKED_SHIPPING'                                       => 'Freight forwarding',
+    'SHIPPING_NOTE'                                         => 'Freight free from 1.000 € value of goods',
+    'MX'                                                    => 'Mx',
+    'COMP'                                                  => 'Company',
 
     // Global
     'DD_SORT_DESC'                                          => 'descending',
@@ -84,6 +87,7 @@ $aLang = [
     // Billing address
     'DD_USER_LABEL_STATE'                                    => 'State',
     'DD_USER_SHIPPING_SELECT_ADDRESS'                       => 'select',
+    'SELECTED'                                              => 'selected',
     'DD_USER_SHIPPING_ADD_DELIVERY_ADDRESS'                 => 'add delivery address',
     'DD_DELETE_SHIPPING_ADDRESS'                            => 'Delete shipping address',
 
@@ -146,9 +150,12 @@ $aLang = [
     'DD_DELETE_REVIEW_CONFIRMATION_QUESTION'                => 'Are you sure you want to delete the review?',
 
     // Contact page
-    'DD_SELECT_SALUTATION'                                  => 'Please choose',
+    'DD_SELECT_SALUTATION'                                  => '-',
 
     'DD_CATEGORY_RESET_BUTTON'                              => 'Reset',
+
+    'GRAND_TOTAL_NET'                                       => 'Grand total (excl. tax)',
+    'VAT_INCL_PERCENT_AMOUNT'                               => 'incl. VAT %s%% Amount'
 ];
 
 /*

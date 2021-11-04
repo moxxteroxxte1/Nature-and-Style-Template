@@ -6,21 +6,21 @@
 
     [{assign var="currency" value=$oView->getActCurrency()}]
     [{if $showMainLink}]
-        [{assign var='_productLink' value=$product->getMainLink()}]
+    [{assign var='_productLink' value=$product->getMainLink()}]
     [{else}]
-        [{assign var='_productLink' value=$product->getLink()}]
+    [{assign var='_productLink' value=$product->getLink()}]
     [{/if}]
     [{assign var="aVariantSelections" value=$product->getVariantSelections(null,null,1)}]
     [{assign var="blShowToBasket" value=true}] [{* tobasket or more info ? *}]
     [{if !$oxcmp_user || $blDisableToCart || $product->isNotBuyable() || ($aVariantSelections&&$aVariantSelections.selections) || $product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants()}]
-        [{assign var="blShowToBasket" value=false}]
+    [{assign var="blShowToBasket" value=false}]
     [{/if}]
 
     [{if !$testid }]
-        [{assign var=testid value=$oView->getViewParameter('testid')}]
+    [{assign var=testid value=$oView->getViewParameter('testid')}]
     [{/if}]
     [{if !$listId }]
-        [{assign var=listId value=$oView->getViewParameter('listId')}]
+    [{assign var=listId value=$oView->getViewParameter('listId')}]
     [{/if}]
 
     <form name="tobasket[{$testid}]" [{if $blShowToBasket}]action="[{$oViewConf->getSelfActionLink()}]" method="post"[{else}]action="[{$_productLink}]" method="get"[{/if}]>
@@ -29,34 +29,34 @@
             [{$oViewConf->getHiddenSid()}]
             <input type="hidden" name="pgNr" value="[{$oView->getActPage()}]">
             [{if $recommid}]
-                <input type="hidden" name="recommid" value="[{$recommid}]">
+        <input type="hidden" name="recommid" value="[{$recommid}]">
             [{/if}]
             [{if $blShowToBasket}]
             [{oxhasrights ident="TOBASKET"}]
-                <input type="hidden" name="cl" value="[{$oViewConf->getTopActiveClassName()}]">
-                [{if $owishid}]
-                    <input type="hidden" name="owishid" value="[{$owishid}]">
-                [{/if}]
-                [{if $toBasketFunction}]
-                    <input type="hidden" name="fnc" value="[{$toBasketFunction}]">
-                [{else}]
-                    <input type="hidden" name="fnc" value="tobasket">
-                [{/if}]
-                <input type="hidden" name="aid" value="[{$product->oxarticles__oxid->value}]">
-                [{if $altproduct}]
-                    <input type="hidden" name="anid" value="[{$altproduct}]">
-                [{else}]
-                    <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
-                [{/if}]
-                [{if $oxcmp_user && $oxcmp_user->inGroup('oxiddealer') && $product->oxarticles__oxamountinpu->value}]
-                    <input type="hidden" name="am" value="[{$product->oxarticles__oxpackagingunit->value}]">
-                [{else}]
-                    <input type="hidden" name="am" value="1">
-                [{/if}]
+        <input type="hidden" name="cl" value="[{$oViewConf->getTopActiveClassName()}]">
+            [{if $owishid}]
+        <input type="hidden" name="owishid" value="[{$owishid}]">
+            [{/if}]
+            [{if $toBasketFunction}]
+        <input type="hidden" name="fnc" value="[{$toBasketFunction}]">
+            [{else}]
+        <input type="hidden" name="fnc" value="tobasket">
+            [{/if}]
+        <input type="hidden" name="aid" value="[{$product->oxarticles__oxid->value}]">
+            [{if $altproduct}]
+        <input type="hidden" name="anid" value="[{$altproduct}]">
+            [{else}]
+        <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
+            [{/if}]
+            [{if $oxcmp_user && $oxcmp_user->inGroup('oxiddealer') && $product->oxarticles__oxamountinpu->value}]
+        <input type="hidden" name="am" value="[{$product->oxarticles__oxpackagingunit->value}]">
+            [{else}]
+        <input type="hidden" name="am" value="1">
+            [{/if}]
             [{/oxhasrights}]
             [{else}]
-                <input type="hidden" name="cl" value="details">
-                <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
+        <input type="hidden" name="cl" value="details">
+        <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
             [{/if}]
         </div>
 
@@ -70,11 +70,11 @@
 
         <div class="listDetails text-center">
             [{block name="widget_product_listitem_infogrid_titlebox"}]
-                <div class="title">
-                    <a id="[{$testid}]" href="[{$_productLink}]" class="title" title="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]">
-                        <span>[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]</span>
-                    </a>
-                </div>
+            <div class="title">
+                <a id="[{$testid}]" href="[{$_productLink}]" class="title" title="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]">
+                    <span>[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]</span>
+                </a>
+            </div>
             [{/block}]
 
             <div style="height: 2rem">
@@ -82,23 +82,23 @@
             </div>
 
             [{if $oxcmp_user}]
-                <div class="price text-center">
-                    <div class="content">
-                        [{block name="widget_product_listitem_grid_price"}]
-                            [{oxhasrights ident="SHOWARTICLEPRICE"}]
-                            [{assign var="oUnitPrice" value=$product->getUnitPrice()}]
-                            [{assign var="tprice"     value=$product->getTPrice()}]
-                            [{assign var="price"      value=$product->getPrice()}]
+            <div class="price text-center">
+                <div class="content">
+                    [{block name="widget_product_listitem_grid_price"}]
+                    [{oxhasrights ident="SHOWARTICLEPRICE"}]
+                    [{assign var="oUnitPrice" value=$product->getUnitPrice()}]
+                    [{assign var="tprice"     value=$product->getTPrice()}]
+                    [{assign var="price"      value=$product->getPrice()}]
 
-                            [{if $tprice && $tprice->getBruttoPrice() > $price->getBruttoPrice()}]
-                                <span class="oldPrice text-muted">
+                    [{if $tprice && $tprice->getBruttoPrice() > $price->getBruttoPrice()}]
+                    <span class="oldPrice text-muted">
                                     <del>[{$product->getFTPrice()}] [{$currency->sign}]</del>
                                 </span>
-                            [{/if}]
+                    [{/if}]
 
-                                [{block name="widget_product_listitem_grid_price_value"}]
-                                    [{if $product->getFPrice()}]
-                                        <span class="lead text-nowrap">
+                    [{block name="widget_product_listitem_grid_price_value"}]
+                    [{if $product->getFPrice()}]
+                    <span class="lead text-nowrap">
                                             [{if $product->isRangePrice()}]
                                                 [{oxmultilang ident="PRICE_FROM"}]
                                                 [{if !$product->isParentNotBuyable()}]
@@ -118,44 +118,39 @@
                                                  [{if !($product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants())}]*[{/if}]
                                             [{/if}]
                                         </span>
-                                    [{/if}]
-                                [{/block}]
-                                [{if $oUnitPrice}]
-                                    <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit">
+                    [{/if}]
+                    [{/block}]
+                    [{if $oUnitPrice}]
+                    <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit">
                                         [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{oxprice price=$oUnitPrice currency=$currency}]/[{$product->getUnitName()}]
                                     </span>
-                                [{elseif $product->oxarticles__oxweight->value }]
-                                    <span id="productPricePerUnit_[{$testid}]" class="pricePerUnit">
-                                        <span title="weight">[{oxmultilang ident="WEIGHT"}]</span>
-                                        <span class="value">[{$product->oxarticles__oxweight->value}] [{oxmultilang ident="KG"}]</span>
-                                    </span>
-                                [{/if}]
-                            [{/oxhasrights}]
-                        [{/block}]
-                    </div>
+                    [{/if}]
+                    [{/oxhasrights}]
+                    [{/block}]
                 </div>
+            </div>
             [{/if}]
             [{block name="widget_product_listitem_grid_tobasket"}]
-                <div class="actions text-center">
-                    <div class="btn-group">
-                        [{if $blShowToBasket}]
-                            [{oxhasrights ident="TOBASKET"}]
-                            [{if $product->getStock() > 0}]
-                                [{assign var="ident" value="TO_CART"}]
-                            [{else}]
-                                [{assign var="ident" value="PRE_ORDER"}]
-                            [{/if}]
-                                <button type="submit" class="btn btn-outline-dark hasTooltip" aria-label="[{oxmultilang ident=$ident}]" data-placement="bottom" title="[{oxmultilang ident=$ident}]" data-container="body">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </button>
-                            [{/oxhasrights}]
-                            <a class="btn btn-primary" href="[{$_productLink}]" >[{oxmultilang ident="MORE_INFO"}]</a>
-                        [{else}]
-                            <a class="btn btn-primary" href="[{$_productLink}]" >[{oxmultilang ident="MORE_INFO"}]</a>
-                        [{/if}]
-                    </div>
+            <div class="actions text-center">
+                <div class="btn-group">
+                    [{if $blShowToBasket}]
+                    [{oxhasrights ident="TOBASKET"}]
+                    [{if $product->getStock() > 0 || $oxcmp_user->inGroup('oxiddealer')}]
+                    [{assign var="ident" value="TO_CART"}]
+                    [{else}]
+                    [{assign var="ident" value="PRE_ORDER"}]
+                    [{/if}]
+                    <button type="submit" class="btn btn-outline-dark hasTooltip" aria-label="[{oxmultilang ident=$ident}]" data-placement="bottom" title="[{oxmultilang ident=$ident}]" data-container="body">
+                        <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    [{/oxhasrights}]
+                    <a class="btn btn-primary" href="[{$_productLink}]" >[{oxmultilang ident="MORE_INFO"}]</a>
+                    [{else}]
+                    <a class="btn btn-primary" href="[{$_productLink}]" >[{oxmultilang ident="MORE_INFO"}]</a>
+                    [{/if}]
                 </div>
+            </div>
             [{/block}]
         </div>
     </form>
-[{/block}]
+    [{/block}]

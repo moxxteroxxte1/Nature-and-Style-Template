@@ -235,7 +235,7 @@
 [{/block}]
 
 [{block name="email_plain_order_cust_deliveryinfo"}]
-[{if $payment->oxuserpayments__oxpaymentsid->value != "oxempty"}][{oxmultilang ident="SHIPPING_CARRIER" suffix="COLON"}] [{$order->oDelSet->oxdeliveryset__oxtitle->getRawValue()}]
+[{if $payment->oxuserpayments__oxpaymentsid->value != "oxempty" && isset($order->oxorder__oxdeltype) && $order->oxorder__oxdeltype != ""}][{oxmultilang ident="SHIPPING_CARRIER" suffix="COLON"}] [{$order->oDelSet->oxdeliveryset__oxtitle->getRawValue()}]
 [{/if}]
 [{/block}]
 

@@ -13,6 +13,10 @@
 
         <div class="underdog">
 
+            <div class="[{if $blFullwidth}]container[{else}]container-fluid[{/if}]" style="margin-top: 1rem">
+             [{$smarty.capture.loginErrors}]
+            </div>
+
             [{*//TODO Add option to switch between fullwidth slider and containered slider*}]
             <div class="[{if $blFullwidth}]container-fluid[{else}]container[{/if}]">
                 <div class="row">
@@ -38,8 +42,6 @@
                         [{include file="widget/breadcrumb.tpl"}]
                     [{/block}]
                 [{/if}]
-
-                [{$smarty.capture.loginErrors}]
 
                 <div class="row">
                     [{if $sidebar && $sidebar != "Right"}]
