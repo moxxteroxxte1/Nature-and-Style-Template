@@ -48,7 +48,11 @@
             [{block name="checkout_basketcontents_nodiscounttotalnet"}]
             <tr>
                 <th class="text-right">[{oxmultilang ident="TOTAL_NET"}]</th>
+                [{if $oxcmp_user->inGroup('oxiddealer')}]
                 <td id="basketTotalProductsNetto" class="text-right">[{oxprice price=$oxcmp_basket->getNettoSum() currency=$currency}]</td>
+                [{else}]
+                <td id="basketTotalProductsNetto" class="text-right">[{oxprice price=$oxcmp_basket->getBruttoSum() currency=$currency}]</td>
+                [{/if}]
             </tr>
             [{/block}]
 
@@ -68,7 +72,11 @@
             [{block name="checkout_basketcontents_discounttotalnet"}]
             <tr>
                 <th class="text-right">[{oxmultilang ident="TOTAL_NET"}]</th>
-                <td id="basketTotalProductsNetto" class="text-right">[{oxprice price=$oxcmp_basket->getNettoSum() currency=$currency}]</td>
+                [{if $oxcmp_user->inGroup('oxiddealer')}]
+                    <td id="basketTotalProductsNetto" class="text-right">[{oxprice price=$oxcmp_basket->getNettoSum() currency=$currency}]</td>
+                [{else}]
+                    <td id="basketTotalProductsNetto" class="text-right">[{oxprice price=$oxcmp_basket->getBruttoSum() currency=$currency}]</td>
+                [{/if}]
             </tr>
             [{/block}]
             [{else}]

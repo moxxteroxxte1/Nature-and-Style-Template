@@ -47,7 +47,7 @@
             [{if !$oxcmp_basket->getDiscounts()}]
             [{block name="checkout_basketcontents_nodiscounttotalnet"}]
             <tr>
-                <th class="text-right">[{oxmultilang ident="TOTAL_GROSS" suffix="COLON"}]</th>
+                <th class="text-right">[{oxmultilang ident="TOTAL_NET" suffix="COLON"}]</th>
                 <td id="basketTotalProductsGross" class="text-right">[{oxprice price=$oxcmp_basket->getBruttoSum() currency=$currency}]</td>
             </tr>
             [{/block}]

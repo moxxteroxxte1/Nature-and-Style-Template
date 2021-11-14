@@ -2,7 +2,7 @@
     [{include file="page/checkout/inc/basketsummary/foreign.tpl"}]
 [{else}]
     [{if $oxcmp_user->inGroup('oxiddealer')}]
-        [{include file="page/checkout/inc/basketsummary/consumer_foreign.tpl"}]
+        [{include file="page/checkout/inc/basketsummary/dealer_inland.tpl"}]
     [{else}]
         [{include file="page/checkout/inc/basketsummary/consumer_inland.tpl"}]
     [{/if}]

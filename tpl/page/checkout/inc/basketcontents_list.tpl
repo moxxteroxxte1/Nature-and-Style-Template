@@ -140,7 +140,15 @@
 
                                 [{block name="checkout_basketcontents_basketitem_vat"}]
                                     <div class="article-Vat">
-                                        <small>[{$basketitem->getVatPercent()}]% [{oxmultilang ident="VAT"}]</small>
+                                        [{if $oxcmp_user->inGroup('oxidforeigncustomer')}]
+                                            <small>[{$basketitem->getVatPercent()}]% [{oxmultilang ident="VAT_UST"}]</small>
+                                        [{else}]
+                                            [{if $oxcmp_user->inGroup('oxiddealer')}]
+                                                <small>[{oxmultilang ident="PLUS_VAT_UST_PERCENT_AMOUNT" args=$basketitem->getVatPercent()}]</small>
+                                            [{else}]
+                                                <small>[{oxmultilang ident="VAT_INCL_PERCENT" args=$basketitem->getVatPercent()}]</small>
+                                            [{/if}]
+                                        [{/if}]
                                     </div>
                                 [{/block}]
                             </div>

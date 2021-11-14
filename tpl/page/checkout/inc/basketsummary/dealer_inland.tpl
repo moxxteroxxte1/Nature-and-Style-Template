@@ -47,7 +47,7 @@
             [{if !$oxcmp_basket->getDiscounts()}]
                 [{block name="checkout_basketcontents_nodiscounttotalnet"}]
                 <tr>
-                    <th class="text-right">[{oxmultilang ident="TOTAL_NET"}]</th>
+                    <th class="text-right">[{oxmultilang ident="TOTAL_NET" suffix="COLON"}]</th>
                     <td id="basketTotalProductsNetto" class="text-right">[{oxprice price=$oxcmp_basket->getNettoSum() currency=$currency}]</td>
                 </tr>
                 [{/block}]
@@ -56,21 +56,21 @@
                 [{assign var="deliveryCost" value=$oxcmp_basket->getDeliveryCost()}]
                     [{if $deliveryCost && ($oxcmp_basket->getBasketUser() || $oViewConf->isFunctionalityEnabled('blCalculateDelCostIfNotLoggedIn') ) }]
                         <tr>
-                            <th class="text-right">[{ oxmultilang ident="SHIPPING_NET" suffix="COLON" }]</th>
+                            <th class="text-right">[{ oxmultilang ident="SHIPPING_COST" suffix="COLON" }]</th>
                             <td id="basketDeliveryNetto" class="text-right">[{oxprice price=$deliveryCost->getNettoPrice() currency=$currency }]</td>
                         </tr>
                     [{/if}]
                 [{/block}]
 
                 <tr>
-                    <th class="text-right">[{ oxmultilang ident="GRAND_TOTAL_NET" suffix="COLON" }]</th>
+                    <th class="text-right">[{ oxmultilang ident="GRAND_TOTAL_NET_UST" suffix="COLON" }]</th>
                     <td id="basketDeliveryNetto" class="text-right">[{oxprice price=$oxcmp_basket->getGrandTotalNetto() currency=$currency }]</td>
                 </tr>
 
                 [{block name="checkout_basketcontents_nodiscountproductvats"}]
                 [{foreach from=$oxcmp_basket->getProductVats(false) item=VATitem key=key}]
                 <tr>
-                    <th class="text-right">[{oxmultilang ident="VAT_PLUS_PERCENT_AMOUNT" suffix="COLON" args=$key}]</th>
+                    <th class="text-right">[{oxmultilang ident="PLUS_VAT_UST_PERCENT_AMOUNT" suffix="COLON" args=$key}]</th>
                     <td class="text-right">[{oxprice price=$VATitem currency=$currency}]</td>
                 </tr>
                 [{/foreach}]

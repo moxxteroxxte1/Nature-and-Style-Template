@@ -31,6 +31,7 @@ $aLang = [
     'ARTICLE_NEW_BADGE'                                     => 'NEW',
     'SURCHARGE_APPLIED'                                     => 'incl island surcharge',
     'MARKED_SHIPPING'                                       => 'Freight forwarding',
+    'PLUS_SHIPPING_VAT'                                     => 'excl. tax, plus ',
     'SHIPPING_NOTE'                                         => 'Freight free from 1.000 € value of goods',
     'MX'                                                    => 'Mx',
     'COMP'                                                  => 'Company',
@@ -155,7 +156,17 @@ $aLang = [
     'DD_CATEGORY_RESET_BUTTON'                              => 'Reset',
 
     'GRAND_TOTAL_NET'                                       => 'Grand total (excl. tax)',
-    'VAT_INCL_PERCENT_AMOUNT'                               => 'incl. VAT %s%% Amount'
+    'VAT_INCL_PERCENT_AMOUNT'                               => 'incl. VAT %s%% Amount',
+    'VAT_INCL_PERCENT'                                      => 'incl. %s%% MwSt',
+    'PLUS_VAT_UST'                                          => 'excl. 19% USt.',
+    'PLUS_VAT_UST_PERCENT_AMOUNT'                           => 'excl. %s%% USt.',
+    'VAT_INCL_UST_PERCENT_AMOUNT'                           => 'incl. %s%% USt.',
+    'VAT_UST'                                               => 'USt.',
+    'TOTAL_NET'                                             => 'Subtotal',
+    'GRAND_TOTAL_NET_UST'                                   => 'Total (without VAT)',
+    'GRAND_TOTAL'                                           => 'Total',
+    'ERROR_MESSAGE_USER_NOACTIVE'                           => 'Your user account has not been activated yet',
+    'TEL_AVIS'                                              => 'telephone notification ',
 ];
 
 /*
