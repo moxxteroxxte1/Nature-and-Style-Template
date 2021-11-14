@@ -33,7 +33,7 @@ $aLang = [
     'PRE_ORDER'                                             => 'Vorbestellen',
     'SURCHARGE_APPLIED'                                     => 'inkl. Inselzuschlag',
     'MARKED_SHIPPING'                                       => 'Speditionsversand',
-    'PLUS_SHIPPING_VAT'                                     => 'zzgl. MwSt und ',
+    'PLUS_SHIPPING_VAT'                                     => 'zzgl. USt. und ',
     'SHIPPING_NOTE'                                         => 'Frachtfrei ab 1.000 € Warenwert',
     'MX'                                                    => 'Divers',
     'COMP'                                                  => 'Firma',
@@ -158,7 +158,17 @@ $aLang = [
     'DD_CATEGORY_RESET_BUTTON'                              => 'Zurücksetzen',
 
     'GRAND_TOTAL_NET'                                       => 'Gesamtbetrag (netto)',
-    'VAT_INCL_PERCENT_AMOUNT'                               => 'inkl. %s%% MwSt, Betrag'
+    'VAT_INCL_PERCENT_AMOUNT'                               => 'inkl. %s%% MwSt, Betrag',
+    'VAT_INCL_PERCENT'                                      => 'inkl. %s%% MwSt',
+    'PLUS_VAT_UST'                                          => 'zzgl. 19% USt.',
+    'PLUS_VAT_UST_PERCENT_AMOUNT'                           => 'zzgl. %s%% USt.',
+    'VAT_INCL_UST_PERCENT_AMOUNT'                           => 'inkl. %s%% USt.',
+    'VAT_UST'                                               => 'USt.',
+    'TOTAL_NET'                                             => 'Zwischensumme',
+    'GRAND_TOTAL_NET_UST'                                   => 'Gesamt (ohne USt.)',
+    'GRAND_TOTAL'                                           => 'Gesamtsumme',
+    'ERROR_MESSAGE_USER_NOACTIVE'                           => 'Ihr Benutzerkonto wurde noch nicht freigeschaltet',
+    'TEL_AVIS'                                              => 'telefonische Avisierung',
 ];
 
 /*

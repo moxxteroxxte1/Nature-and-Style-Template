@@ -37,12 +37,27 @@
 
                             [{assign var="oDeliveryCostPrice" value=$oxcmp_basket->getDeliveryCost()}]
                             [{if $oDeliveryCostPrice && $oDeliveryCostPrice->getPrice() > 0}]
-                                [{if $oViewConf->isFunctionalityEnabled('blShowVATForDelivery') }]
+                                [{if $oViewConf->isFunctionalityEnabled('blShowVATForDelivery')}]
                                     <div id="shipSetCost">
                                         <b>[{oxmultilang ident="CHARGES" suffix="COLON"}] [{if $oxcmp_basket->hasSurcharge()}]( [{oxmultilang ident="SURCHARGE_APPLIED"}] )[{/if}] [{oxprice price=$oDeliveryCostPrice->getNettoPrice() currency=$currency}]
-                                            ([{oxmultilang ident="PLUS_VAT"}] [{oxprice price=$oDeliveryCostPrice->getVatValue() currency=$currency}])
+                                            </br><small>([{oxmultilang ident="PLUS_VAT"}] [{oxprice price=$oDeliveryCostPrice->getVatValue() currency=$currency}])</small>
                                         </b>
                                     </div>
+                                [{elseif $oxcmp_user->inGroup('oxiddealer')}]
+                                    <div id="shipSetCost">
+                                        <b>[{oxmultilang ident="CHARGES" suffix="COLON"}] [{if $oxcmp_basket->hasSurcharge()}]( [{oxmultilang ident="SURCHARGE_APPLIED"}] )[{/if}] [{oxprice price=$oDeliveryCostPrice->getNettoPrice() currency=$currency}]
+                                            </br><small>[{oxmultilang ident="PLUS_VAT_UST"}]</small>
+                                        </b>
+                                    </div>
+                                    [{if $oxcmp_basket->hasTelAvis()}]
+                                        </br>
+                                        <div class="checkbox">
+                                            <input type="checkbox" name="blTelAvis" id="blTelAvis" [{if $oxcmp_basket->isIncludingTelAvis()}]checked[{/if}] onchange="this.form.submit();">
+                                            <label for="blTelAvis">
+                                                [{oxmultilang ident="TEL_AVIS"}] ([{oxprice price=$oxcmp_basket->getTelAvisPrice() currency=$currency}])
+                                            </label>
+                                        </div>
+                                    [{/if}]
                                 [{else}]
                                     <div id="shipSetCost">
                                         <b>[{oxmultilang ident="CHARGES" suffix="COLON"}] [{oxprice price=$oDeliveryCostPrice->getBruttoPrice() currency=$currency}]</b>
