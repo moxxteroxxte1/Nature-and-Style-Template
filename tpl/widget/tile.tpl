@@ -34,7 +34,9 @@
                          src="[{$sTilePictureUrl}]" alt="[{$sTileTitle}]" title="[{$sTileTitle}]">
                     [{if $oViewConf->getViewThemeParam('blSliderShowImageCaption') && $sTileLink}]
 
-                    <div id="tile[{$smarty.foreach.tileList.iteration}]" [{if isset($oTile->oxactions__oxcolor)}]style="background-color: [{$oTile->getColor()}]"[{/if}]>
+                    <div id="tile[{$smarty.foreach.tileList.iteration}]"
+                         [{if isset($oTile->oxactions__oxcolor)}]style="background-color: [{$oTile->getColor()}]"
+                         [{/if}]>
                         <h3>[{$sTileTitle}]</h3>
                         [{if $oTile->oxactions__oxlongdesc->value|trim}]
                         <span>[{$oTile->oxactions__oxlongdesc->value|trim}]</span>
@@ -44,7 +46,9 @@
                     [{else}]
                     [{if $oViewConf->getViewThemeParam('blSliderShowImageCaption') && $sTileLink}]
 
-                    <div id="tile[{$smarty.foreach.tileList.iteration}]" [{if isset($oTile->oxactions__oxcolor)}]style="background-color: [{$oTile->getColor()}]"[{/if}]>
+                    <div id="tile[{$smarty.foreach.tileList.iteration}]"
+                         [{if isset($oTile->oxactions__oxcolor)}]style="background-color: [{$oTile->getColor()}]"
+                         [{/if}]>
                         <h3>[{$sTileTitle}]</h3>
                         [{if $oTile->oxactions__oxlongdesc->value|trim}]
                         <span>[{$oTile->oxactions__oxlongdesc->value|trim}]</span>
@@ -67,7 +71,6 @@
             [{/block}]
         </div>
     </div>
-
 
 
     [{/if}]

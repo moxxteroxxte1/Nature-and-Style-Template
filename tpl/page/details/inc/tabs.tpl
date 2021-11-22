@@ -25,13 +25,7 @@
 [{/block}]
 
 [{block name="details_tabs_attributes"}]
-    [{if $oView->getAttributes()}]
-        [{capture append="tabs"}]<a class="nav-link[{if $blFirstTab}] active[{/if}]" href="#attributes" data-toggle="tab">[{oxmultilang ident="SPECIFICATION"}]</a>[{/capture}]
-        [{capture append="tabsContent"}]
-            <div id="attributes" class="tab-pane[{if $blFirstTab}] active[{/if}]">[{include file="page/details/inc/attributes.tpl"}]</div>
-            [{assign var="blFirstTab" value=false}]
-        [{/capture}]
-    [{/if}]
+
 [{/block}]
 
 [{block name="details_tabs_tags"}]

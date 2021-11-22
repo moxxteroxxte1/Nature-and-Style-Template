@@ -56,7 +56,8 @@
                 [{assign var="deliveryCost" value=$oxcmp_basket->getDeliveryCost()}]
                     [{if $deliveryCost && ($oxcmp_basket->getBasketUser() || $oViewConf->isFunctionalityEnabled('blCalculateDelCostIfNotLoggedIn') ) }]
                         <tr>
-                            <th class="text-right">[{ oxmultilang ident="SHIPPING_COST" suffix="COLON" }]</th>
+                            <th class="text-right">[{ oxmultilang ident="SHIPPING_COST" suffix="COLON" }]
+                                [{if $deliveryCost->getNettoPrice() > 0}]<br><small>[{oxmultilang ident="SHIPPING_NOTE"}]</small>[{/if}]</th>
                             <td id="basketDeliveryNetto" class="text-right">[{oxprice price=$deliveryCost->getNettoPrice() currency=$currency }]</td>
                         </tr>
                     [{/if}]
